@@ -1,3 +1,5 @@
+alias galiases='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
+
 alias gitl='git log --graph --full-history --all --color \
         --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
@@ -12,6 +14,7 @@ alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.lo
 alias hard='git reset --hard'
 alias am='git commit --amend'
 alias wip='git commit -m wip'
+alias duhast='git push -f'
 
 alias dump_be="pg_dump bestevent_development  > `date +%F-%H-%M`_`git rev-parse --abbrev-ref HEAD`.sql"
 alias ptdb='RET rdd && RET rdc && RET rdm'
@@ -22,6 +25,10 @@ reb() {
 
 h() {
   history | grep $1
+}
+
+gdiff() {
+  git diff HEAD~$1
 }
 
 compose() {
