@@ -43,16 +43,16 @@ fetchdb() {
   echo 'Fetching from dev@188.166.104.239...'
   scp dev@188.166.104.239:db_dumps/$1 $2
   echo "Changing db owner to $(whoami) ..."
-  sed -ie "s/Owner: bestevent/Owner: $(whoami)/g" $2
-  sed -ie "s/OWNER TO bestevent/OWNER TO $(whoami)/g" $2
+  sed -i "s/Owner: bestevent/Owner: $(whoami)/g" $2
+  sed -i "s/OWNER TO bestevent/OWNER TO $(whoami)/g" $2
 }
 
 fetchdevdb() {
   echo 'Fetching from dev@188.166.104.239...'
   scp dev@bestevent-dev.innocode.no:db_dumps/$1 $2
   echo "Changing db owner to $(whoami) ..."
-  sed -ie "s/Owner: bestevent/Owner: $(whoami)/g" $2
-  sed -ie "s/OWNER TO bestevent/OWNER TO $(whoami)/g" $2
+  sed -i "s/Owner: bestevent/Owner: $(whoami)/g" $2
+  sed -i "s/OWNER TO bestevent/OWNER TO $(whoami)/g" $2
 }
 
 alias pbcopy='xclip -selection clipboard'
