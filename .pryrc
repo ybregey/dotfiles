@@ -23,12 +23,14 @@ def ep id
   EventPromotion.find id
 end
 
-def local
-  Newspaper.find_by_custom_domain! 'localhost'
+def localhost?
+  Newspaper.find_by_custom_domain!("localhost")
 end
 
-def local! id
-  NewspaperConfig.where(newspaper_id: id).update custom_domain: 'localhost'
+def localhost!(id)
+  NewspaperConfig.find_by(custom_domain: "localhost")&.update(custom_domain: (0...8).map { (65 + rand(26)).chr }.join)
+
+  NewspaperConfig.find_by!(newspaper_id: id).update(custom_domain: 'localhost')
 end
 
 
