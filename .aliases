@@ -25,8 +25,12 @@ reb() {
   git rebase -i HEAD~$1
 }
 
-h() {
+hs() {
   history | grep $1
+}
+
+gdh() {
+  git diff HEAD~$1
 }
 
 gdiff() {

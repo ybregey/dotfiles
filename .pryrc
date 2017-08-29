@@ -1,26 +1,29 @@
+require "benchmark"
+#require "benchmark/ips"
+
 def rcc
   Rails.cache.clear
   puts "Cache cleared!"
 end
 
-def n id
-  Newspaper.find id
+def n(id)
+  Newspaper.find(id)
 end
 
-def c id
-  NewspaperConfig.find id
+def c(id)
+  NewspaperConfig.find(id)
 end
 
-def f id
-  Feed.find id
+def f(id)
+  Feed.find(id)
 end
 
-def e id
-  Event.find id
+def e(id)
+  Event.find(id)
 end
 
-def ep id
-  EventPromotion.find id
+def ep(id)
+  EventPromotion.find(id)
 end
 
 def localhost?
@@ -44,6 +47,19 @@ def bm(iterations)
     end
   end
 end
+
+def bm_compare(n, **examples)
+  Benchmark.bm do |bm|
+    examples.each do |name, block|
+      bm.report(name) do
+        n.times do
+          block.call
+        end
+      end
+    end
+  end
+end
+
 
 def time_method(method=nil, *args)
   beginning_time = Time.now
