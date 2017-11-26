@@ -15,6 +15,8 @@ alias force='git push -uf '
 alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias hard='git reset --hard'
 alias am='git commit --amend'
+alias m='git checkout master'
+alias dif='git diff'
 alias wip='git commit -m wip'
 alias duhast='git push -f'
 
@@ -54,7 +56,7 @@ fetchdb() {
 }
 
 fetchdevdb() {
-  echo 'Fetching from dev@188.166.104.239...'
+  echo 'Fetching from dev@bestevent-dev.innocode.no...'
   scp dev@bestevent-dev.innocode.no:db_dumps/$1 $2
   echo "Changing db owner to $(whoami) ..."
   sed -i "s/Owner: bestevent/Owner: $(whoami)/g" $2
@@ -88,3 +90,9 @@ alias ez='vim ~/.zshrc'
 alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias fuckfuck='bundle exec cap production deploy:rollback'
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+alias grd='bundle exec guard'
+
+howtokill() {
+  echo 'sudo kill -9 $(lsof -i :3000 -t)'
+}
