@@ -6,37 +6,6 @@ def rcc
   puts "Cache cleared!"
 end
 
-def n(id)
-  Newspaper.find(id)
-end
-
-def c(id)
-  NewspaperConfig.find(id)
-end
-
-def f(id)
-  Feed.find(id)
-end
-
-def e(id)
-  Event.find(id)
-end
-
-def ep(id)
-  EventPromotion.find(id)
-end
-
-def localhost?
-  Newspaper.find_by_custom_domain!("localhost")
-end
-
-def localhost!(id)
-  NewspaperConfig.find_by(custom_domain: "localhost")&.update(custom_domain: (0...8).map { (65 + rand(26)).chr }.join)
-
-  NewspaperConfig.find_by!(newspaper_id: id).update(custom_domain: 'localhost')
-end
-
-
 def bm(iterations)
   Benchmark.bm do |bm|
     # execute block
@@ -75,3 +44,20 @@ def time_method(method=nil, *args)
   puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds".colorize(:red)
 end
 
+require 'dotenv'
+Dotenv.load('~/kaoss.env')
+
+$aws_creds = {
+  aws_access_key_id: ENV.fetch("AWS_ACCESS_KEY_ID"),
+  aws_secret_access_key: ENV.fetch("AWS_SECRET_ACCESS_KEY"),
+  region: ENV.fetch('AWS_REGION')
+}
+
+def fog_client!(creds = $aws_creds)
+  require 'fog'
+  $fog_client = Fog::Storage::AWS.new(creds)
+end
+
+def as!
+  require 'active_support/all'
+end

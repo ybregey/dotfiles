@@ -107,3 +107,6 @@ export EDITOR="atom"
 
 # export NVM_DIR="/home/kaoss/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export GOPATH=$HOME/golang
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin

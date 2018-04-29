@@ -6,7 +6,7 @@ alias gitl='git log --graph --full-history --all --color \
 alias aliases='gedit ~/.aliases && . ~/.zshrc'
 alias be='bundle exec'
 alias r='bundle exec rspec'
-alias go='git checkout '
+alias to='git checkout '
 alias s='git status'
 # improve save with taking last commit hash and make git commit -ac <commit>
 alias save='git add --all && git commit -m "SAVEPOINT"'
@@ -23,6 +23,8 @@ alias duhast='git push -f'
 
 alias dump_be="pg_dump bestevent_development  > `date +%F-%H-%M`_`git rev-parse --abbrev-ref HEAD`.sql"
 alias ptdb='RET rdd && RET rdc && RET rdm'
+alias apti="sudo apt-get install"
+alias betty="~/betty/main.rb"
 
 reb() {
   git rebase -i HEAD~$1
