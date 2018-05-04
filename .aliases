@@ -1,0 +1,101 @@
+alias galiases='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
+
+alias gitl='git log --graph --full-history --all --color \
+        --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+
+alias aliases='gedit ~/.aliases && . ~/.zshrc'
+alias be='bundle exec'
+alias r='bundle exec rspec'
+alias to='git checkout '
+alias s='git status'
+# improve save with taking last commit hash and make git commit -ac <commit>
+alias save='git add --all && git commit -m "SAVEPOINT"'
+alias hrk='git push heroku HEAD:master'
+alias force='git push -uf '
+alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias hard='git reset --hard'
+alias am='git commit --amend --no-edit'
+alias ame='git commit --amend'
+alias m='git checkout master'
+alias dif='git diff'
+alias wip='git commit -m wip'
+alias duhast='git push -f'
+
+alias dump_be="pg_dump bestevent_development  > `date +%F-%H-%M`_`git rev-parse --abbrev-ref HEAD`.sql"
+alias ptdb='RET rdd && RET rdc && RET rdm'
+alias apti="sudo apt-get install"
+alias betty="~/betty/main.rb"
+
+reb() {
+  git rebase -i HEAD~$1
+}
+
+hs() {
+  history | grep $1
+}
+
+gdh() {
+  git diff HEAD~$1
+}
+
+gdiff() {
+  git diff HEAD~$1
+}
+
+compose() {
+  rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
+}
+
+bake() {
+  bundle exec rake $@	
+}
+
+fetchdb() {
+  echo 'Fetching from dev@188.166.104.239...'
+  scp dev@188.166.104.239:db_dumps/$1 $2
+  echo "Changing db owner to $(whoami) ..."
+  sed -i "s/Owner: bestevent/Owner: $(whoami)/g" $2
+  sed -i "s/OWNER TO bestevent/OWNER TO $(whoami)/g" $2
+}
+
+fetchdevdb() {
+  echo 'Fetching from dev@bestevent-dev.innocode.no...'
+  scp dev@bestevent-dev.innocode.no:db_dumps/$1 $2
+  echo "Changing db owner to $(whoami) ..."
+  sed -i "s/Owner: bestevent/Owner: $(whoami)/g" $2
+  sed -i "s/OWNER TO bestevent/OWNER TO $(whoami)/g" $2
+}
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+alias testenv='RAILS_ENV=test rake db:drop && RAILS_ENV=TEST rake db:create && RAILS_ENV=test rake db:migrate'
+alias br='git branch -a'
+
+alias fire='RAILS_ENV=test rake db:drop && RAILS_ENV=test rake db:create && RAILS_ENV=test rake db:migrate && rspec --fail-fast'
+
+alias gimmedb='rake db:drop && rake db:create && psql bestevent_development <'
+
+alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymorphism --sort=true --prepend_primary=true --filename=erd_uml --notation=uml'
+
+# aliases for Tmux
+alias tmux='tmux -2'
+alias ta='tmux attach -t'
+alias tnew='tmux new -s'
+alias tls='tmux ls'
+alias tkill='tmux kill-session -t'
+
+# convenience aliases for editing configs
+alias ev='vim ~/.vimrc'
+alias et='vim ~/.tmux.conf'
+alias ez='vim ~/.zshrc'
+
+alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias fuckfuck='bundle exec cap production deploy:rollback'
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+alias grd='bundle exec guard'
+
+howtokill() {
+  echo 'sudo kill -9 $(lsof -i :3000 -t)'
+}
