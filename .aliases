@@ -25,6 +25,8 @@ alias dump_be="pg_dump bestevent_development  > `date +%F-%H-%M`_`git rev-parse 
 alias ptdb='RET rdd && RET rdc && RET rdm'
 alias apti="sudo apt-get install"
 alias betty="~/betty/main.rb"
+alias zsh!="source ~/.zshrc"
+alias go!="cd ~/go/src/github.com/yurko"
 
 reb() {
   git rebase -i HEAD~$1

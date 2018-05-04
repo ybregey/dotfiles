@@ -1,7 +1,7 @@
 [color]
 	ui = true
 [user]
-	name = Yura Bregey
+	name = Yurko Bregey
 	email = bregey@gmail.com
 [alias]
     s = status
@@ -30,8 +30,8 @@
     editor = vim
 [push]
     default = simple
-	ff = only
+    ff = only
 [pull]
-	ff = only
+    ff = only
 [merge]
-	ff = false
+    ff = false

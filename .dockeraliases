@@ -1,0 +1,5 @@
+alias up="docker-compose up"
+alias upl="docker-compose up && docker-compose logs -f"
+alias updl="docker-compose up -d && docker-compose logs -f"
+alias upbdl="docker-compose up --build -d && docker-compose logs -f"
+alias down="docker-compose down"
