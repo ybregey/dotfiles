@@ -27,6 +27,7 @@ alias apti="sudo apt-get install"
 alias betty="~/betty/main.rb"
 alias zsh!="source ~/.zshrc"
 alias go!="cd ~/go/src/github.com/yurko"
+alias dev!="cd ~/dev"
 
 reb() {
   git rebase -i HEAD~$1
