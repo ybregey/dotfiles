@@ -1,3 +1,5 @@
+Pry.config.theme = "pry-modern-256"
+
 require "benchmark"
 #require "benchmark/ips"
 
@@ -44,6 +46,7 @@ def time_method(method=nil, *args)
   puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds".colorize(:red)
 end
 
+=begin
 require 'dotenv'
 Dotenv.load('~/kaoss.env')
 
@@ -61,3 +64,4 @@ end
 def as!
   require 'active_support/all'
 end
+=end

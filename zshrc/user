@@ -1,0 +1,10 @@
+# prevent terminal from closing when Ctrl+D was pressed
+set -o ignoreeof
+
+# Preferred editor for local and remote sessions
+export EDITOR='vi'
+
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
