@@ -1,0 +1,13 @@
+[/]
+foreground-color='#b4b4e1e1fdfd'
+visible-name='Aci'
+palette=['#363636363636', '#ffff08088383', '#8383ffff0808', '#ffff83830808', '#08088383ffff', '#83830808ffff', '#0808ffff8383', '#b6b6b6b6b6b6', '#424242424242', '#ffff1e1e8e8e', '#8e8effff1e1e', '#ffff8e8e1e1e', '#1e1e8e8effff', '#8e8e1e1effff', '#1e1effff8e8e', '#c2c2c2c2c2c2']
+use-transparent-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#b6b6b6b6b6b6'
+background-color='#0d0d19192626'
+background-transparency-percent=33
+audible-bell=false

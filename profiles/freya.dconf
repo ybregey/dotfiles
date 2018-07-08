@@ -1,0 +1,16 @@
+[/]
+foreground-color='#9494a3a3a5a5'
+visible-name='Freya'
+palette=['#070736364242', '#dcdc32322f2f', '#858599990000', '#b5b589890000', '#26268b8bd2d2', '#ecec00004848', '#2a2aa1a19898', '#9494a3a3a5a5', '#58586e6e7575', '#cbcb4b4b1616', '#858599990000', '#b5b589890000', '#26268b8bd2d2', '#d3d336368282', '#2a2aa1a19898', '#6c6c7171c4c4']
+cell-width-scale=1.0
+use-system-font=true
+use-transparent-background=true
+use-theme-colors=false
+cell-height-scale=1.0
+use-theme-transparency=false
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#9494a3a3a5a5'
+background-color='#25252e2e3232'
+background-transparency-percent=8
+audible-bell=false

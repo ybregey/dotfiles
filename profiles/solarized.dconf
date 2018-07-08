@@ -1,0 +1,13 @@
+[/]
+foreground-color='#838394949696'
+visible-name='Solarized Dark'
+palette=['#070736364242', '#DCDC32322F2F', '#858599990000', '#CFCF9A9A6B6B', '#26268B8BD2D2', '#D3D336368282', '#2A2AA1A19898', '#EEEEE8E8D5D5', '#65657B7B8383', '#D8D879797979', '#8888CFCF7676', '#65657B7B8383', '#26269999FFFF', '#D3D336368282', '#4343B8B8C3C3', '#FDFDF6F6E3E3']
+use-transparent-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-theme-background=false
+bold-color-same-as-fg=false
+bold-color='#93A1A1'
+background-color='#00002B2B3636'
+background-transparency-percent=33
+audible-bell=false
