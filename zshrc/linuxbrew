@@ -1,0 +1,5 @@
+case `uname` in
+  Linux)
+    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+  ;;
+esac
