@@ -20,9 +20,9 @@ source $HOME/zshrc/aliases to .zshrc
 source $HOME/zshrc/dockeraliases to .zshrc
 source $HOME/zshrc/fzf to .zshrc
 source $HOME/zshrc/nvm to .zshrc
+source $HOME/zshrc/go to .zshrc
 source $HOME/zshrc/rails to .zshrc
 source $HOME/zshrc/betty to .zshrc
 source $HOME/zshrc/linuxbrew to .zshrc
-source $HOME/zshrc/color to .zshrc
 source $HOME/zshrc/rbenv to .zshrc
-# source $HOME/zshrc/rvm to .zshrc
+# source $HOME/zshrc/color to .zshrc
