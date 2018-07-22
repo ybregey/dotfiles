@@ -48,18 +48,7 @@ end
 
 =begin
 require 'dotenv'
-Dotenv.load('~/kaoss.env')
-
-$aws_creds = {
-  aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
-  aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-  region: ENV["AWS_REGION"]
-}
-
-def fog_client!(creds = $aws_creds)
-  require 'fog'
-  $fog_client = Fog::Storage::AWS.new(creds)
-end
+Dotenv.load('~/my.env')
 
 def as!
   require 'active_support/all'
