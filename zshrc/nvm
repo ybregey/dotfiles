@@ -1,7 +1,7 @@
 case `uname` in
   Linux)
     export NVM_DIR="$HOME/.nvm"
-    . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+    . "$LINUXBREWHOME/opt/nvm/nvm.sh"
   ;;
   Darwin)
     # nothing to do

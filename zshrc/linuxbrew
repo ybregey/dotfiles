@@ -1,5 +1,9 @@
 case `uname` in
   Linux)
-    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+    export LINUXBREWHOME=$HOME/.linuxbrew
+    export PATH=$LINUXBREWHOME/bin:$PATH
+    export MANPATH=$LINUXBREWHOME/man:$MANPATH
+    # TEMPFIX
+    export PGDATA="~/.linuxbrew/var/postgres"
   ;;
 esac
