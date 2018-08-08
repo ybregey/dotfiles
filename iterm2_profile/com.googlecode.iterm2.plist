@@ -787,15 +787,7 @@
 	<key>FlashTabBarInFullscreen</key>
 	<false/>
 	<key>GlobalKeyMap</key>
-	<dict>
-		<key>0x79-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>11</integer>
-			<key>Text</key>
-			<string>0x15</string>
-		</dict>
-	</dict>
+	<dict/>
 	<key>HideActivityIndicator</key>
 	<false/>
 	<key>HideScrollbar</key>
@@ -862,7 +854,7 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>605 294 1016 512 0 0 1920 1058 </string>
+	<string>605 255 796 473 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>441 123 1026 748 0 0 1920 1058 </string>
 	<key>New Bookmarks</key>
@@ -1226,12 +1218,26 @@
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
+				<key>0x443-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x05</string>
+				</dict>
+				<key>0x444-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x01</string>
+				</dict>
 				<key>0x446-0x100000</key>
 				<dict>
 					<key>Action</key>
-					<integer>13</integer>
+					<integer>11</integer>
 					<key>Text</key>
-					<string></string>
+					<string>0x1B 0x08</string>
 				</dict>
 				<key>0x57-0x120000</key>
 				<dict>
@@ -1248,6 +1254,13 @@ Close All Panes in Tab</string>
 					<key>Text</key>
 					<string>0x01</string>
 				</dict>
+				<key>0x64-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>4</string>
+				</dict>
 				<key>0x65-0x100000</key>
 				<dict>
 					<key>Action</key>
@@ -1255,12 +1268,43 @@ Close All Panes in Tab</string>
 					<key>Text</key>
 					<string>0x05</string>
 				</dict>
+				<key>0x68-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>25</integer>
+					<key>Text</key>
+					<string>Split Horizontally with Current Profile
+Split Horizontally with Current Profile</string>
+				</dict>
 				<key>0x71-0x100000</key>
 				<dict>
 					<key>Action</key>
 					<integer>13</integer>
 					<key>Text</key>
 					<string></string>
+				</dict>
+				<key>0x75-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x15</string>
+				</dict>
+				<key>0x75-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>25</integer>
+					<key>Text</key>
+					<string>Use Transparency
+Use Transparency</string>
+				</dict>
+				<key>0x76-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>25</integer>
+					<key>Text</key>
+					<string>Split Vertically with Current Profile
+Split Vertically with Current Profile</string>
 				</dict>
 				<key>0x77-0x100000</key>
 				<dict>
