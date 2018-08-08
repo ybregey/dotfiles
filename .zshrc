@@ -23,4 +23,5 @@ source $HOME/zshrc/go to .zshrc
 source $HOME/zshrc/rails to .zshrc
 source $HOME/zshrc/betty to .zshrc
 source $HOME/zshrc/rbenv to .zshrc
+source $HOME/zshrc/docker to .zshrc
 # source $HOME/zshrc/color to .zshrc

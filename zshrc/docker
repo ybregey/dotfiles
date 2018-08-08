@@ -1,0 +1,11 @@
+# Docker container socket address resolver
+# jq shoul be installed
+# sock container_name internal_port
+sock() {
+  ip=`docker inspect test_sshd | jq ".[0].NetworkSettings.IPAddress"`
+  ip="${ip%\"}"
+  ip="${ip#\"}"
+  port=`docker port $1 $2` # returns 0.0.0.0:8342
+  port=${port#0.0.0.0:}    # remove 0.0.0.0:
+  echo "$ip:$port"
+}
