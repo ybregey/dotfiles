@@ -862,7 +862,7 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>806 343 796 473 0 0 1920 1058 </string>
+	<string>904 313 796 473 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>441 123 1026 748 0 0 1920 1058 </string>
 	<key>New Bookmarks</key>
@@ -1226,6 +1226,21 @@
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
+				<key>0x446-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>13</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
+				<key>0x57-0x120000</key>
+				<dict>
+					<key>Action</key>
+					<integer>25</integer>
+					<key>Text</key>
+					<string>Close All Panes in Tab
+Close All Panes in Tab</string>
+				</dict>
 				<key>0x61-0x100000</key>
 				<dict>
 					<key>Action</key>
@@ -1252,7 +1267,7 @@
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x15</string>
+					<string>0x1B 0x08</string>
 				</dict>
 				<key>0x7f-0x100000</key>
 				<dict>
@@ -1268,6 +1283,13 @@
 					<key>Text</key>
 					<string>0x1B 0x08</string>
 				</dict>
+				<key>0xf702-0x240000</key>
+				<dict>
+					<key>Action</key>
+					<integer>39</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
 				<key>0xf702-0x280000</key>
 				<dict>
 					<key>Action</key>
@@ -1282,6 +1304,20 @@
 					<key>Text</key>
 					<string>b</string>
 				</dict>
+				<key>0xf702-0x320000</key>
+				<dict>
+					<key>Action</key>
+					<integer>33</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
+				<key>0xf703-0x240000</key>
+				<dict>
+					<key>Action</key>
+					<integer>32</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
 				<key>0xf703-0x280000</key>
 				<dict>
 					<key>Action</key>
@@ -1295,6 +1331,13 @@
 					<integer>10</integer>
 					<key>Text</key>
 					<string>f</string>
+				</dict>
+				<key>0xf703-0x320000</key>
+				<dict>
+					<key>Action</key>
+					<integer>34</integer>
+					<key>Text</key>
+					<string></string>
 				</dict>
 			</dict>
 			<key>Link Color</key>
@@ -2365,7 +2408,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
