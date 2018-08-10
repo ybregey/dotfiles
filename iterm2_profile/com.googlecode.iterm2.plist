@@ -854,9 +854,9 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>605 255 796 473 0 0 1920 1058 </string>
+	<string>553 237 796 473 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>441 123 1026 748 0 0 1920 1058 </string>
+	<string>88 162 1697 799 0 0 1920 1058 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1218,12 +1218,35 @@
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
-				<key>0x443-0x100000</key>
+				<key>0x2e-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>25</integer>
+					<key>Text</key>
+					<string>Use Transparency
+Use Transparency</string>
+				</dict>
+				<key>0x2e-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>25</integer>
+					<key>Text</key>
+					<string>Use Transparency
+Use Transparency</string>
+				</dict>
+				<key>0x433-0x100000</key>
 				<dict>
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x05</string>
+					<string>0x15</string>
+				</dict>
+				<key>0x433-0x40000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x15</string>
 				</dict>
 				<key>0x444-0x100000</key>
 				<dict>
@@ -1289,14 +1312,6 @@ Split Horizontally with Current Profile</string>
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x15</string>
-				</dict>
-				<key>0x75-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>25</integer>
-					<key>Text</key>
-					<string>Use Transparency
-Use Transparency</string>
 				</dict>
 				<key>0x76-0x40000</key>
 				<dict>
