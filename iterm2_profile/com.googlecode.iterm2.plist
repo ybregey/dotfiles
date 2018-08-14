@@ -783,7 +783,7 @@
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DisableFullscreenTransparency</key>
-	<false/>
+	<true/>
 	<key>FlashTabBarInFullscreen</key>
 	<false/>
 	<key>GlobalKeyMap</key>
@@ -854,7 +854,7 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>553 237 796 473 0 0 1920 1058 </string>
+	<string>535 329 796 473 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>88 162 1697 799 0 0 1920 1058 </string>
 	<key>New Bookmarks</key>
@@ -1345,9 +1345,9 @@ Split Vertically with Current Profile</string>
 				<key>0xf702-0x240000</key>
 				<dict>
 					<key>Action</key>
-					<integer>39</integer>
+					<integer>10</integer>
 					<key>Text</key>
-					<string></string>
+					<string>b</string>
 				</dict>
 				<key>0xf702-0x280000</key>
 				<dict>
@@ -1373,9 +1373,9 @@ Split Vertically with Current Profile</string>
 				<key>0xf703-0x240000</key>
 				<dict>
 					<key>Action</key>
-					<integer>32</integer>
+					<integer>10</integer>
 					<key>Text</key>
-					<string></string>
+					<string>f</string>
 				</dict>
 				<key>0xf703-0x280000</key>
 				<dict>
@@ -2417,6 +2417,8 @@ Split Vertically with Current Profile</string>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>554917146.94416201</real>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -2452,6 +2454,8 @@ Split Vertically with Current Profile</string>
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/yuriy_brehey/iterm2_profile</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>RightOption</key>
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
@@ -2475,7 +2479,7 @@ Split Vertically with Current Profile</string>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.24602113381410265</real>
+	<real>0.40765474759615383</real>
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>SwitchPaneModifier</key>
