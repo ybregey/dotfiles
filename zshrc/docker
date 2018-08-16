@@ -9,3 +9,11 @@ sock() {
   port=${port#0.0.0.0:}    # remove 0.0.0.0:
   echo "$ip:$port"
 }
+
+function dpsa() {
+  docker ps -f "name=$1" -a
+}
+
+function dps() {
+  docker ps -f "name=$1"
+}

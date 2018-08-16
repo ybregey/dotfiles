@@ -25,5 +25,6 @@ source $HOME/zshrc/betty to .zshrc
 source $HOME/zshrc/rbenv to .zshrc
 source $HOME/zshrc/docker to .zshrc
 source $HOME/zshrc/kafka to .zshrc
+source $HOME/zshrc/projects/* to .zshrc
 
 # source $HOME/zshrc/color to .zshrc
