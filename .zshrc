@@ -1,3 +1,6 @@
+# fix ^M on return key press
+stty icrnl
+
 export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
 
 ZSH_THEME="kaoss"
