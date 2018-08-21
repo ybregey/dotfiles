@@ -4,6 +4,7 @@ stty icrnl
 export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
 
 ZSH_THEME="kaoss"
+BAT_THEME="TwoDark"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
