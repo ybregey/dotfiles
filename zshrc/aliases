@@ -1,38 +1,47 @@
-alias galiases='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
-
-alias gitl='git log --graph --full-history --all --color \
-        --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-
 alias aliases='nano ~/.aliases && . ~/.zshrc'
-alias be='bundle exec'
-alias r='bundle exec rspec'
+
+# Git
+# show aliases provided by omzsh
+alias galiases='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh'
+# pretty log
+alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 alias to='git checkout '
 alias s='git status'
+alias c='git commit -m'
 # improve save with taking last commit hash and make git commit -ac <commit>
 alias save='git add --all && git commit -m "SAVEPOINT"'
-alias hrk='git push heroku HEAD:master'
-alias force='git push -uf '
+alias force='git push -f '
 alias hard='git reset --hard'
 alias am='git commit --amend --no-edit'
 alias ame='git commit --amend'
 alias m='git checkout master'
+alias develop='git checkout develop'
 alias p='git checkout -'
 alias dif='git diff'
 alias wip='git commit -m wip'
-alias duhast='git push -f'
+
+# Ruby & Rails
+alias be='bundle exec'
+alias r='bundle exec rspec'
+alias ptdb='RET rdd && RET rdc && RET rdm'
 
 # Zeus
 alias zr='zeus rspec'
 alias zc='zeus console'
 alias zs='zeus server'
 
-alias ptdb='RET rdd && RET rdc && RET rdm'
+# Ubuntu
 alias apti="sudo apt-get install"
+
+# Tools
 alias betty="~/betty/main.rb"
+
+# Misc
 alias zsh!="source ~/.zshrc"
 alias go!="cd ~/go/src/github.com/yurko"
 alias dev!="cd ~/dev"
 
+# Functions TODO sort
 reb() {
   git rebase -i HEAD~$1
 }
