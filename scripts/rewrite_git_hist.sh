@@ -1,8 +1,13 @@
 # https://help.github.com/articles/changing-author-info/
 #!/bin/sh
 
+: ${OLD_EMAIL:?"Need to set OLD_EMAIL non-empty"}
+
+# remove backup
+rm -f .git/refs/original/refs/heads/master
+
 git filter-branch --env-filter '
-OLD_EMAIL="wrong@example.com"
+
 CORRECT_NAME="Yurko Bregey"
 CORRECT_EMAIL="bregey@gmail.com"
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
