@@ -16,11 +16,16 @@ alias hard='git reset --hard'
 alias am='git commit --amend --no-edit'
 alias ame='git commit --amend'
 alias m='git checkout master'
+alias p='git checkout -'
 alias dif='git diff'
 alias wip='git commit -m wip'
 alias duhast='git push -f'
 
-alias dump_be="pg_dump bestevent_development  > `date +%F-%H-%M`_`git rev-parse --abbrev-ref HEAD`.sql"
+# Zeus
+alias zr='zeus rspec'
+alias zc='zeus console'
+alias zs='zeus server'
+
 alias ptdb='RET rdd && RET rdc && RET rdm'
 alias apti="sudo apt-get install"
 alias betty="~/betty/main.rb"
