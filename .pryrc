@@ -46,11 +46,9 @@ def time_method(method=nil, *args)
   puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds".colorize(:red)
 end
 
-=begin
-require 'dotenv'
-Dotenv.load('~/my.env')
-
 def as!
   require 'active_support/all'
 end
-=end
+
+# usefull when pasting json params with null values
+def null; nil; end

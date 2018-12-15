@@ -10,6 +10,7 @@ alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[3
 alias to='git checkout '
 alias s='git status'
 alias c='git commit -m'
+alias b='git checkout -b'
 alias stash='git stash'
 alias pop='git pop'
 # improve save with taking last commit hash and make git commit -ac <commit>

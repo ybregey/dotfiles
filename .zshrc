@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/zshrc/user to .zshrc
 source $HOME/zshrc/aliases to .zshrc
 source $HOME/zshrc/fzf to .zshrc
-source $HOME/zshrc/nvm to .zshrc
+#source $HOME/zshrc/nvm to .zshrc
 source $HOME/zshrc/go to .zshrc
 source $HOME/zshrc/rails to .zshrc
 source $HOME/zshrc/betty to .zshrc
