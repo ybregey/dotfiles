@@ -17,3 +17,5 @@ function dpsa() {
 function dps() {
   docker ps -f "name=$1"
 }
+alias dclogs="docker-compose logs --tail 1 -f"
+alias drmi="docker rmi $(docker images --filter "dangling=true" -q --no-trunc)"
