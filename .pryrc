@@ -48,3 +48,10 @@ def time_method(method=nil, *args)
 
   puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds".colorize(:red)
 end
+
+def as!
+  require 'active_support/all'
+end
+
+def null; nil; end
+
