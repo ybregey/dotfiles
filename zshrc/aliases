@@ -25,6 +25,7 @@ alias p='git checkout -'
 alias dif='git diff'
 alias wip='git commit -m wip'
 alias br='git branch -a'
+alias gmmp='git merge --no-edit master && git push &'
 
 reb() {
   git rebase -i HEAD~$1
