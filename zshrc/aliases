@@ -26,6 +26,7 @@ alias dif='git diff'
 alias wip='git commit -m wip'
 alias br='git branch -a'
 alias gmmp='git merge --no-edit master && git push &'
+alias grc='git rebase --continue'
 
 reb() {
   git rebase -i HEAD~$1

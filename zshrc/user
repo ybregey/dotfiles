@@ -8,3 +8,8 @@ bindkey "[D" backward-word
 bindkey "[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
+
+
+function tch() {
+  mkdir -p `dirname $1` && touch $1
+}

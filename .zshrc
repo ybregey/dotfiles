@@ -15,7 +15,7 @@ CASE_SENSITIVE="true"
 # This makes repository status check for large repositories much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git rails zsh-autosuggestions ssh-agent)
+plugins=(git rails zsh-autosuggestions docker-compose)
 
 # Oh my zsh!
 export ZSH=$HOME/.oh-my-zsh
