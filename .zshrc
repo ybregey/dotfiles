@@ -17,6 +17,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(git rails zsh-autosuggestions docker-compose)
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_STRATEGY=(history match_prev_cmd)
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # Oh my zsh!
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -25,7 +29,7 @@ source $HOME/zshrc/user to .zshrc
 source $HOME/zshrc/aliases to .zshrc
 source $HOME/zshrc/fzf to .zshrc
 #source $HOME/zshrc/nvm to .zshrc
-source $HOME/zshrc/go to .zshrc
+#source $HOME/zshrc/go to .zshrc
 source $HOME/zshrc/rails to .zshrc
 source $HOME/zshrc/betty to .zshrc
 source $HOME/zshrc/rbenv to .zshrc

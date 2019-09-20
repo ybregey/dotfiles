@@ -4,45 +4,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Git
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-alias galiases='cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show aliases provided by omzsh
-# pretty log
-alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias to='git checkout '
-alias s='git status'
-alias c='git commit -m'
-alias b='git checkout -b'
-alias stash='git stash'
-alias pop='git pop'
-# improve save with taking last commit hash and make git commit -ac <commit>
-alias save='git add --all && git commit -m "SAVEPOINT"'
-alias force='git push -f '
-alias hard='git reset --hard'
-alias am='git commit --amend --no-edit'
-alias ame='git commit --amend'
-alias m='git checkout master'
-alias develop='git checkout develop'
-alias p='git checkout -'
-alias dif='git diff'
-alias wip='git commit -m wip'
-alias br='git branch -a'
-alias gmmp='git merge --no-edit master && git push &'
-alias grc='git rebase --continue'
-
-reb() {
-  git rebase -i HEAD~$1
-}
-
-hs() {
-  history | grep $1
-}
-
-gdh() {
-  git diff HEAD~$1
-}
-
-gdiff() {
-  git diff HEAD~$1
-}
+alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git plugin aliases
+alias gitaliases='bat $HOME/zshrc/gitaliases.sh' # show custom aliases
+source $HOME/zshrc/gitaliases
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Ruby & Rails
@@ -65,16 +29,10 @@ bake() {
 }
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# Zeus
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-alias zr='zeus rspec'
-alias zc='zeus console'
-alias zs='zeus server'
-
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Ubuntu
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 alias apti="sudo apt-get install"
+alias aptu="sudo apt-get update"
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Tools
@@ -94,10 +52,7 @@ alias tkill='tmux kill-session -t'
 # Misc
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 alias zsh!="source ~/.zshrc"
-alias go!="cd ~/go/src/github.com/yurko"
 alias dev!="cd ~/dev"
-
-# TODO check if it works
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
