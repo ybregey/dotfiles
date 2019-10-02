@@ -1,17 +1,23 @@
 Pry.config.theme = "pry-modern-256"
 
-require 'awesome_print'
-AwesomePrint.pry!
+if ENV["BENCHMARK"]
+  require 'bundler/inline'
 
-require "benchmark"
-#require "benchmark/ips"
-
-def rcc
-  Rails.cache.clear
-  puts "Cache cleared!"
+  gemfile do
+    source 'https://rubygems.org'
+    gem 'benchmark-ips'
+  end
 end
 
+require 'awesome_print' unless defined?(AwesomePrint)
+AwesomePrint.pry!
+
+# useful when pasting json
+def null; nil end
+
 def bm(iterations)
+  require "benchmark"
+
   Benchmark.bm do |bm|
     # execute block
     bm.report do
@@ -23,6 +29,8 @@ def bm(iterations)
 end
 
 def bm_compare(n, **examples)
+  require "benchmark"
+
   Benchmark.bm do |bm|
     examples.each do |name, block|
       bm.report(name) do
@@ -49,14 +57,22 @@ def time_method(method=nil, *args)
   puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
 end
 
+# Rails
+def rcc
+  Rails.cache.clear
+  puts "Cache cleared!"
+end
+
 def as!
   require 'active_support/all'
 end
 
-def null; nil; end
-
 if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
   ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(ActiveRecord::Base)
+end
+
+def dbexec(*args)
+  ActiveRecord::Base.connection.execute(*args)
 end
 
 def cheatsheet
