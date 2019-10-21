@@ -1,7 +1,8 @@
 # fix ^M on return key press
 stty icrnl
 
-MAILCHECK=0
+export MAILCHECK=0
+export ZSH_HIGHLIGHT_MAXLENGTH=30
 
 export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
 
