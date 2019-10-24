@@ -3,6 +3,8 @@ stty icrnl
 
 export MAILCHECK=0
 export ZSH_HIGHLIGHT_MAXLENGTH=30
+export EDITOR="atom"
+export GEM_EDITOR="atom"
 
 export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
 
