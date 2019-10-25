@@ -6,6 +6,8 @@ export ZSH_HIGHLIGHT_MAXLENGTH=30
 export EDITOR="atom"
 export GEM_EDITOR="atom"
 
+bindkey "^X\\x7f" backward-kill-line
+
 export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
 
 ZSH_THEME="kaoss"

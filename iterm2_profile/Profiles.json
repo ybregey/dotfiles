@@ -119,6 +119,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.20616915822029114
   },
+  "Initial Use Transparency" : true,
   "Only The Default BG Color Uses Transparency" : false,
   "Columns" : 80,
   "Idle Code" : 0,
@@ -161,53 +162,53 @@
   "Use Italic Font" : true,
   "Unlimited Scrollback" : false,
   "Keyboard Map" : {
-    "0x7f-0xa0000" : {
-      "Action" : 10,
-      "Text" : "d"
-    },
     "0xf702-0x320000" : {
       "Action" : 11,
-      "Text" : "0x15"
-    },
-    "0xf702-0x300000" : {
-      "Action" : 11,
-      "Text" : "0x01"
-    },
-    "0xf703-0x300000" : {
-      "Action" : 11,
-      "Text" : "0x05"
-    },
-    "0xf702-0x2a0000" : {
-      "Action" : 11,
-      "Text" : "0x17"
-    },
-    "0xf702-0x260000" : {
-      "Action" : 11,
-      "Text" : "0x17"
+      "Text" : "0x18 0x7f"
     },
     "0xf703-0x280000" : {
       "Action" : 10,
       "Text" : "f"
     },
-    "0x75-0x100000" : {
+    "0xf702-0x260000" : {
       "Action" : 11,
       "Text" : "0x17"
-    },
-    "0x61-0x100000" : {
-      "Action" : 11,
-      "Text" : "0x01"
-    },
-    "0xf702-0x220000" : {
-      "Action" : 2,
-      "Text" : ""
     },
     "0xf703-0x240000" : {
       "Action" : 10,
       "Text" : "f"
     },
+    "0xf703-0x300000" : {
+      "Action" : 11,
+      "Text" : "0x05"
+    },
+    "0x61-0x100000" : {
+      "Action" : 11,
+      "Text" : "0x01"
+    },
+    "0x75-0x80000" : {
+      "Action" : 11,
+      "Text" : "0x17"
+    },
+    "0xf702-0x2a0000" : {
+      "Action" : 11,
+      "Text" : "0x17"
+    },
+    "0x7f-0x80000" : {
+      "Action" : 11,
+      "Text" : "0x17"
+    },
     "0xf702-0x280000" : {
       "Action" : 10,
       "Text" : "b"
+    },
+    "0xf702-0x300000" : {
+      "Action" : 11,
+      "Text" : "0x01"
+    },
+    "0xf703-0x320000" : {
+      "Action" : 11,
+      "Text" : "0xB"
     },
     "0xf702-0x240000" : {
       "Action" : 10,
@@ -217,34 +218,26 @@
       "Action" : 10,
       "Text" : "d"
     },
-    "0xf703-0x220000" : {
-      "Action" : 0,
-      "Text" : ""
-    },
     "0x65-0x100000" : {
       "Action" : 11,
       "Text" : "0x05"
+    },
+    "0x7f-0x100000" : {
+      "Action" : 11,
+      "Text" : "0x15"
     },
     "0xf703-0x2a0000" : {
       "Action" : 10,
       "Text" : "d"
     },
-    "0x75-0x80000" : {
-      "Action" : 11,
-      "Text" : "0x17"
-    },
-    "0x7f-0x80000" : {
-      "Action" : 11,
-      "Text" : "0x17"
-    },
-    "0x7f-0x100000" : {
-      "Action" : 11,
-      "Text" : "0x15"
+    "0x7f-0xa0000" : {
+      "Action" : 10,
+      "Text" : "d"
     }
   },
   "Window Type" : 0,
   "Cursor Boost" : 0,
-  "Blur Radius" : 0.10000000000000001,
+  "Blur Radius" : 11.311314244923858,
   "Background Image Location" : "",
   "Blur" : false,
   "Badge Color" : {
@@ -302,7 +295,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.35916060209274292
   },
-  "Transparency" : 0.032729219543147239,
+  "Transparency" : 0.16798263007614214,
   "Horizontal Spacing" : 1,
   "Use Non-ASCII Font" : true,
   "Ansi 6 Color" : {
