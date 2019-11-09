@@ -13,6 +13,7 @@ source $HOME/zshrc/gitaliases
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 alias be='bundle exec'
 alias r='bundle exec rspec'
+alias t='bundle exec rspec'
 alias ptdb='RET rdd && RET rdc && RET rdm'
 alias grd='bundle exec guard'
 #alias fire='RAILS_ENV=test rake db:drop && RAILS_ENV=test rake db:create && RAILS_ENV=test rake db:migrate && rspec --fail-fast'

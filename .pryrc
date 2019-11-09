@@ -75,6 +75,10 @@ def dbexec(*args)
   ActiveRecord::Base.connection.execute(*args)
 end
 
+def p
+  request.params
+end
+
 def cheatsheet
   puts <<-TXT
     help ls -- Display command options for pry command ls

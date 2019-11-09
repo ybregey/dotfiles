@@ -1,5 +1,6 @@
 # fix ^M on return key press
-stty icrnl
+#stty icrnl
+stty sane
 
 export MAILCHECK=0
 export ZSH_HIGHLIGHT_MAXLENGTH=30
@@ -35,9 +36,11 @@ source $HOME/zshrc/aliases to .zshrc
 source $HOME/zshrc/fzf to .zshrc
 #source $HOME/zshrc/nvm to .zshrc
 #source $HOME/zshrc/go to .zshrc
+source $HOME/zshrc/elixir to .zshrc
 source $HOME/zshrc/rails to .zshrc
 source $HOME/zshrc/betty to .zshrc
-source $HOME/zshrc/rbenv to .zshrc
+#source $HOME/zshrc/rbenv to .zshrc
+source $HOME/zshrc/asdf to .zshrc
 source $HOME/zshrc/docker to .zshrc
 source <(cat $HOME/zshrc/projects/*)
 source $HOME/zshrc/color to .zshrc
