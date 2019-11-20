@@ -75,7 +75,7 @@ def dbexec(*args)
   ActiveRecord::Base.connection.execute(*args)
 end
 
-def p
+def rp
   request.params
 end
 
