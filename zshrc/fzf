@@ -1,4 +1,0 @@
-# Set fzf installation directory path
-export FZF_BASE=/usr/local/opt/fzf
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

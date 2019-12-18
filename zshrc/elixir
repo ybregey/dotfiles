@@ -1,3 +1,0 @@
-export ERL_AFLAGS="-kernel shell_history enabled"
-alias ips="iex -S mix phx.server"
-

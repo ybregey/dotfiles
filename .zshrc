@@ -1,5 +1,4 @@
 # fix ^M on return key press
-#stty icrnl
 stty sane
 
 export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
@@ -10,9 +9,8 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history match_prev_cmd)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_THEME="kaoss"
 export BAT_THEME="TwoDark"
-
-CASE_SENSITIVE="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+export CASE_SENSITIVE="true"
+export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
 fzf-zsh
@@ -27,13 +25,12 @@ docker-compose
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/zshrc/user to .zshrc
-source $HOME/zshrc/aliases to .zshrc
-source $HOME/zshrc/fzf to .zshrc
-source $HOME/zshrc/elixir to .zshrc
-source $HOME/zshrc/rails to .zshrc
-source $HOME/zshrc/betty to .zshrc
-#source $HOME/zshrc/rbenv to .zshrc
-source $HOME/zshrc/asdf to .zshrc
-source $HOME/zshrc/docker to .zshrc
-source <(cat $HOME/zshrc/projects/*)
+source $HOME/zsh/user to .zshrc
+source $HOME/zsh/aliases to .zshrc
+source $HOME/zsh/fzf to .zshrc
+source $HOME/zsh/elixir to .zshrc
+source $HOME/zsh/rails to .zshrc
+source $HOME/zsh/betty to .zshrc
+source $HOME/zsh/asdf to .zshrc
+source $HOME/zsh/docker to .zshrc
+source <(cat $HOME/zsh/projects/*)
