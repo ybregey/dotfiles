@@ -23,4 +23,3 @@ compose() {
 bake() {
   bundle exec rake $@
 }
-

@@ -29,5 +29,3 @@ alias ez='vim ~/.zshrc'
 howtokill() {
   echo 'sudo kill -9 $(lsof -i :3000 -t)'
 }
-
-
