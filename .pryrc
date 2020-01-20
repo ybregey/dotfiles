@@ -1,3 +1,11 @@
+# gem install pry-theme pry-state awesome_print coderay
+# gem install pry-auto_benching.rb
+# gem install pry-toys
+# Array.toy(3, Float) # => [1.0, 2.0, 3.0]
+# Array.toy(3) {|i| i + 3} # => [3, 6, 9]
+# Hash.toy(300) # => { a: 1, b: 2, ..., kn: 300 }
+# String.toy(2) # => "ttttttt oooo"
+
 Pry.config.theme = "pry-modern-256"
 
 if ENV["BENCHMARK"]

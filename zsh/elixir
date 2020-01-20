@@ -1,0 +1,5 @@
+export ERL_AFLAGS="-kernel shell_history enabled"
+alias iexm="source .env && iex -S mix"
+alias iexs="source .env && PORT=4001 iex -S mix phx.server"
+alias mixpry="source .env && iex -S mix test --trace"
+alias mix="source .env && mix"

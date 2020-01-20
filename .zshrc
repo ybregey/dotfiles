@@ -1,3 +1,5 @@
+setopt ignore_eof
+
 # fix ^M on return key press
 stty sane
 

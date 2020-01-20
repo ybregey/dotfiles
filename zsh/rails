@@ -1,0 +1,5 @@
+export GEM_EDITOR="atom"
+export DISABLE_SPRING=1
+export BUNDLE_IGNORE_CONFIG=1
+
+alias rdrd='rails db:migrate:redo'
