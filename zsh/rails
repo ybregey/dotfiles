@@ -2,4 +2,25 @@ export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
 export BUNDLE_IGNORE_CONFIG=1
 
+alias be='bundle exec'
+alias r='bundle exec rspec'
+alias ptdb='RET rdd && RET rdc && RET rdm'
+alias grd='bundle exec guard'
+#alias fire='RAILS_ENV=test rake db:drop && RAILS_ENV=test rake db:create && RAILS_ENV=test rake db:m$
+#alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
+alias cop='rubocop'
+alias copa='rubocop --auto-correct'
+alias gem_open='EDITOR="atom --wait" bundle open'
+alias push='git push -u origin $(current_branch)'
+alias fpush='git push -uf origin $(current_branch)'
+alias rmb='git branch --merged | grep -v "master" | while read i; do git branch -d $i; done;' # remov$
 alias rdrd='rails db:migrate:redo'
+
+compose() {
+  rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
+}
+
+bake() {
+  bundle exec rake $@
+}
+

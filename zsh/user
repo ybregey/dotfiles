@@ -6,3 +6,28 @@ export EDITOR='vi'
 function tch() {
   mkdir -p `dirname $1` && touch $1
 }
+
+alias dev!="cd ~/dev"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+#t() {
+#  if [ -f Gemfile ]; then
+#     bundle exec rspec $1
+#  elif [ -f mix.exs ]; then
+#     mix test $1
+#  else
+#     echo 'wtf?'
+#  fi
+#}
+
+# convenience aliases for editing configs
+alias ev='vim ~/.vimrc'
+alias et='vim ~/.tmux.conf'
+alias ez='vim ~/.zshrc'
+
+howtokill() {
+  echo 'sudo kill -9 $(lsof -i :3000 -t)'
+}
+
+

@@ -27,12 +27,23 @@ docker-compose
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+alias zsh!="source ~/.zshrc"
+edit_zsh(){
+  nano ~/.zshrc
+  source ~/.zshrc
+  echo "new .zshrc sourced."
+}
+
 source $HOME/zsh/user to .zshrc
-source $HOME/zsh/aliases to .zshrc
+source $HOME/zsh/git to .zshrc
 source $HOME/zsh/fzf to .zshrc
 source $HOME/zsh/elixir to .zshrc
+#source $HOME/zsh/python to .zshrc
 source $HOME/zsh/rails to .zshrc
-source $HOME/zsh/betty to .zshrc
+#source $HOME/zsh/betty to .zshrc
 source $HOME/zsh/asdf to .zshrc
 source $HOME/zsh/docker to .zshrc
 source <(cat $HOME/zsh/projects/*)
