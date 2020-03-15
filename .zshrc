@@ -1,3 +1,6 @@
+#  load and unload environment variables depending on the current directory
+eval "$(direnv hook zsh)"
+
 setopt ignore_eof
 
 # fix ^M on return key press
