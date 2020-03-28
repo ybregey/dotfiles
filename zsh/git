@@ -32,6 +32,7 @@ alias save='git add --all && git commit -m "SAVEPOINT"'
 alias force='git push -f '
 
 alias grm='git rebase master'
+alias grqa='git rebase qa'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 

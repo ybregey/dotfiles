@@ -4,3 +4,5 @@
 [alias]
 	new = checkout -b
 	kill = branch -D
+	co = checkout
+	unstage = reset HEAD --

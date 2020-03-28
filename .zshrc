@@ -49,4 +49,5 @@ source $HOME/zsh/rails to .zshrc
 #source $HOME/zsh/betty to .zshrc
 source $HOME/zsh/asdf to .zshrc
 source $HOME/zsh/docker to .zshrc
+source $HOME/zsh/network to .zshrc
 source <(cat $HOME/zsh/projects/*)

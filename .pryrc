@@ -17,8 +17,8 @@ if ENV["BENCHMARK"]
   end
 end
 
-require 'awesome_print' unless defined?(AwesomePrint)
-AwesomePrint.pry!
+#require 'awesome_print' unless defined?(AwesomePrint)
+#AwesomePrint.pry!
 
 # useful when pasting json
 def null; nil end

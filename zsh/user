@@ -29,6 +29,10 @@ alias ev='vim ~/.vimrc'
 alias et='vim ~/.tmux.conf'
 alias ez='vim ~/.zshrc'
 
+rubymine() {
+  ~/RubyMine/bin/rubymine.sh
+}
+
 howtokill() {
   echo 'sudo kill -9 $(lsof -i :3000 -t)'
 }
