@@ -6,7 +6,7 @@ alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git pl
 alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
 
 alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias branches='git branch -a'
+alias branches='git branch -l'
 
 alias gco='git checkout'
 alias new='git checkout -b'
@@ -28,8 +28,10 @@ alias ame='git commit --amend'
 alias ama='git add --all && am'
 alias wip='git commit -m wip'
 alias save='git add --all && git commit -m "SAVEPOINT"'
+alias gac='git add . && git commit -a -m '
 
-alias force='git push -f '
+alias force='git push -f origin $(current_branch)'
+alias fpush='force'
 
 alias grm='git rebase master'
 alias grqa='git rebase qa'

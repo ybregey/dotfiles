@@ -6,7 +6,10 @@ setopt ignore_eof
 # fix ^M on return key press
 stty sane
 
-export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
+# TEMPFIX PATH gets messy after each source ~/.zshrc
+export PATH=~/.asdf/shims:~/.asdf/bin:~/bin:/usr/bin:/usr/local/bin:~/.cargo/bin:~/.local/bin:/usr/local/sbin:/usr/sbin:/sbin:/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:~/.fzf/bin
+
 export MAILCHECK=0
 export ZSH_HIGHLIGHT_MAXLENGTH=30
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
@@ -18,12 +21,13 @@ export CASE_SENSITIVE="true"
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
+z
+sudo
 fzf-zsh
 git
 rails
 zsh-autosuggestions
 zsh-syntax-highlighting
-docker-compose
 )
 
 # Oh my zsh!
@@ -34,7 +38,7 @@ source $ZSH/oh-my-zsh.sh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 alias zsh!="source ~/.zshrc"
-edit_zsh(){
+ezshc(){
   nano ~/.zshrc
   source ~/.zshrc
   echo "new .zshrc sourced."

@@ -1,2 +1,2 @@
 alias ports="sudo netstat -ntpl"
-
+alias myip="curl http://ipecho.net/plain; echo"

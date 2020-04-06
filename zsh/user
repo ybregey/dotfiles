@@ -5,14 +5,12 @@ alias a='atom'
 
 #bindkey "^X\x7F" backward-kill-line
 
+alias upd='sudo apt-get update && sudo apt-get upgrade'
 
-function tch() {
-  mkdir -p `dirname $1` && touch $1
-}
+alias tch='_tch(){ mkdir -p `dirname $1` && touch $1 }; _tch '
+alias mkcd='_mkcd(){ mkdir -p "$1"; cd "$1" }; _mkcd '
 
 alias dev!="cd ~/storage/dev"
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 
 #t() {
 #  if [ -f Gemfile ]; then
@@ -35,4 +33,14 @@ rubymine() {
 
 howtokill() {
   echo 'sudo kill -9 $(lsof -i :3000 -t)'
+}
+
+combos() {
+  echo '
+    Ctrl + U – delete from the cursor to the start of the line.
+    Ctrl + K – delete from the cursor to the end of the line.
+    Ctrl + W – delete from the cursor to the start of the preceding word.
+    Alt + D – delete from the cursor to the end of the next word.
+    Ctrl + L – clear the terminal.
+  '
 }

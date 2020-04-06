@@ -20,3 +20,22 @@ function dpsa() {
 function dps() {
   docker ps -f "name=$1"
 }
+
+dcs() {
+  echo '
+    # remove docker containers
+    docker ps -a
+    docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+
+    # remove docker images
+    docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+
+    # delete volumes:
+    docker volume rm $(docker volume ls -qf dangling=true)
+  '
+}
+
+dcleanup(){
+  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
