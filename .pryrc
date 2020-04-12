@@ -87,6 +87,14 @@ def rp
   request.params
 end
 
+def recognize_path(path)
+  Rails.application.routes.recognize_path path
+end
+
+def r(path)
+  recognize_path(path)
+end
+
 def cheatsheet
   puts <<-TXT
     help ls -- Display command options for pry command ls

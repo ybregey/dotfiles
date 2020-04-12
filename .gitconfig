@@ -6,3 +6,5 @@
 	kill = branch -D
 	co = checkout
 	unstage = reset HEAD --
+[core]
+	excludesfile = /home/kaoss/.gitignore_global

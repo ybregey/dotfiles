@@ -1,17 +1,17 @@
 export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
-export BUNDLE_IGNORE_CONFIG=1
+#export BUNDLE_IGNORE_CONFIG=1
 
 alias be='bundle exec'
-alias r='bundle exec rspec'
-alias ptdb='RET rdd && RET rdc && RET rdm'
-alias pddb='RED rdd && RED rdc && RED rdm'
-alias grd='bundle exec guard'
 #alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
 alias cop='rubocop'
-alias copa='rubocop --auto-correct'
+alias cop='rubocop --auto-correct'
 alias gem_open='EDITOR="atom --wait" bundle open'
-alias rdbmr='rails db:migrate:redo'
+alias redo_migration='rails db:migrate:redo'
+
+# redefined per project:
+#alias ptdb='RET rdd && RET rdc && RET rdm' # prepare test db
+#alias pddb='RED rdd && RED rdc && RED rdm' # prepare dev db
 
 compose() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb

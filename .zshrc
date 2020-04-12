@@ -23,6 +23,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
 z
 sudo
+dotenv
 fzf-zsh
 git
 rails

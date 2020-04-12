@@ -6,6 +6,10 @@ alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git pl
 alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
 
 alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gls='git log --stat'
+
+alias gd="git diff"
+
 alias branches='git branch -l'
 
 alias gco='git checkout'
@@ -37,6 +41,8 @@ alias grm='git rebase master'
 alias grqa='git rebase qa'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
+
+alias gsu="git submodule update --init --recursive"
 
 reb() {
   git rebase -i HEAD~$1
