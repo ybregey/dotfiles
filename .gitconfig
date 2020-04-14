@@ -1,10 +1,26 @@
 [user]
-	email = bregey@gmail.com
-	name = Yurko Bregey
+  email = bregey@gmail.com
+  name = Yurko Bregey
 [alias]
-	new = checkout -b
-	kill = branch -D
-	co = checkout
-	unstage = reset HEAD --
+  new = checkout -b
+  kill = branch -D
+  co = checkout
+  br = branch
+  ci = commit -v
+  cam = commit -am
+  df = diff
+  st = status
+  sa = stash
+  cp = cherry-pick
+  pl = pull --rebase
+  unstage = reset HEAD --
+  rl = reflog --pretty=reflog
+  gls = log --stat
 [core]
-	excludesfile = /home/kaoss/.gitignore_global
+  excludesfile = /home/kaoss/.gitignore_global
+[color]
+  ui = true
+[pretty]
+  reflog = %C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)
+[pager]
+  branch = false
