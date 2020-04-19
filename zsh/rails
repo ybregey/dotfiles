@@ -1,11 +1,10 @@
 export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
-#export BUNDLE_IGNORE_CONFIG=1
 
 alias be='bundle exec'
 #alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
-alias cop='rubocop'
-alias cop='rubocop --auto-correct'
+alias cop='be rubocop'
+alias copa='be rubocop --auto-correct'
 alias gem_open='EDITOR="atom --wait" bundle open'
 alias redo_migration='rails db:migrate:redo'
 

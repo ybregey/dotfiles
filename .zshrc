@@ -17,8 +17,9 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history match_prev_cmd)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_THEME="kaoss"
 export BAT_THEME="TwoDark"
-export CASE_SENSITIVE="true"
-export DISABLE_UNTRACKED_FILES_DIRTY="true"
+export CASE_SENSITIVE=1
+export DISABLE_UNTRACKED_FILES_DIRTY=1
+export ZSH_DOTENV_PROMPT=0
 
 plugins=(
 z

@@ -41,6 +41,9 @@ alias gac='git add . && git commit -a -m '
 alias force='git push -f origin $(current_branch)'
 alias fpush='force'
 
+unalias gl # zsh git plugin
+alias gpl='git pull --rebase'
+
 alias grm='git rebase master'
 alias grqa='git rebase qa'
 alias grc='git rebase --continue'
@@ -56,12 +59,12 @@ hs() {
   history | grep $1
 }
 
-gdiff() {
-  git diff HEAD~$1
+dff() {
+  git diff HEAD~"${1:-1}" # 1 if not provided
 }
 
 back() {
-  git checkout @{-${1:-1}}
+  git checkout "${1:-1}" # 1 if not provided
 }
 
 git_cheatsheet() {

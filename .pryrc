@@ -1,11 +1,10 @@
-# gem install pry-theme pry-state awesome_print coderay
-# gem install pry-auto_benching.rb
 # gem install pry-toys
 # Array.toy(3, Float) # => [1.0, 2.0, 3.0]
 # Array.toy(3) {|i| i + 3} # => [3, 6, 9]
 # Hash.toy(300) # => { a: 1, b: 2, ..., kn: 300 }
 # String.toy(2) # => "ttttttt oooo"
 
+# gem install pry-theme
 Pry.config.theme = "pry-modern-256"
 
 if ENV["BENCHMARK"]
@@ -75,6 +74,7 @@ def as!
   require 'active_support/all'
 end
 
+# log SQL queries for debugging
 if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
   ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(ActiveRecord::Base)
 end
@@ -83,16 +83,14 @@ def dbexec(*args)
   ActiveRecord::Base.connection.execute(*args)
 end
 
-def rp
-  request.params
-end
-
-def recognize_path(path)
-  Rails.application.routes.recognize_path path
+def params
+  super resque request.params
 end
 
 def r(path)
-  recognize_path(path)
+  %i[get post put patch delete].each_with_object({}) do |method, memo|
+    memo[method.to_s.upcase] = Rails.application.routes.recognize_path(path, method: method) rescue next
+  end
 end
 
 def cheatsheet
