@@ -22,7 +22,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
 
 plugins=(
-z
+z # jump to directories
 sudo
 dotenv
 fzf-zsh
