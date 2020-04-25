@@ -1,6 +1,8 @@
 export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
 
+unalias rg
+
 alias be='bundle exec'
 #alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
 alias cop='be rubocop'

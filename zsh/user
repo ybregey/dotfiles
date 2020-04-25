@@ -3,9 +3,13 @@ export EDITOR='vi'
 
 alias a='atom'
 
-#bindkey "^X\x7F" backward-kill-line
+alias cat='bat'
+alias ls='exa'
+
+#bindkey "^X\x7F" backward-kill-line # don't recall why it was needed. MacOS?
 
 alias upd='sudo apt-get update && sudo apt-get upgrade'
+alias inst='sudo apt install'
 
 alias tch='_tch(){ mkdir -p `dirname $1` && touch $1 }; _tch '
 alias mkcd='_mkcd(){ mkdir -p "$1"; cd "$1" }; _mkcd '
@@ -23,13 +27,10 @@ alias dev!="cd ~/storage/dev"
 #}
 
 # convenience aliases for editing configs
-alias ev='vim ~/.vimrc'
-alias et='vim ~/.tmux.conf'
-alias ez='vim ~/.zshrc'
-
-rubymine() {
-  ~/RubyMine/bin/rubymine.sh
-}
+alias ev='vi ~/.vimrc'
+alias et='vi ~/.tmux.conf'
+alias ez='vi ~/.zshrc'
+alias ep='vi ~/.pryrc'
 
 howtokill() {
   echo 'sudo kill -9 $(lsof -i :3000 -t)'

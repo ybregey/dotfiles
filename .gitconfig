@@ -18,6 +18,7 @@
   gls = log --stat
 [core]
   excludesfile = /home/kaoss/.gitignore_global
+	autocrlf = true
 [color]
   ui = true
 [pretty]

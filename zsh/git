@@ -2,11 +2,16 @@
 # Git
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+unalias gl # zsh git plugin
+
 alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git plugin aliases
 alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
 
-alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gs="git show"
+
+alias gl='git log'
 alias gls='git log --stat'
+alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
 alias reflog="git reflog --date=iso"
 alias reflog2="git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'"
@@ -15,6 +20,7 @@ alias walk_reflogs="git log --walk-reflogs --date=iso"
 alias gd="git diff"
 
 alias branches='git branch -l'
+alias b='branches'
 
 alias gco='git checkout'
 alias new='git checkout -b'
@@ -30,7 +36,7 @@ alias stash='git stash'
 alias pop='git stash pop'
 
 alias c='git commit -m'
-alias ap='git add -p'
+alias add='git add -p'
 alias am='git commit --amend --no-edit'
 alias ame='git commit --amend'
 alias ama='git add --all && am'
@@ -41,11 +47,12 @@ alias gac='git add . && git commit -a -m '
 alias force='git push -f origin $(current_branch)'
 alias fpush='force'
 
-unalias gl # zsh git plugin
 alias gpl='git pull --rebase'
 
 alias grm='git rebase master'
+alias rebm='git rebase master'
 alias grqa='git rebase qa'
+alias rebqa='git rebase qa'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 
