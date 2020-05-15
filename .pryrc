@@ -84,7 +84,9 @@ def dbexec(*args)
 end
 
 def params
-  super resque request.params
+  super
+ resque
+   request.params if defined?(request)
 end
 
 def r(path)

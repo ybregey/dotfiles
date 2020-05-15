@@ -1,41 +1,36 @@
-alias dclogs="docker-compose logs --tail 1 -f"
-alias drmi="docker rmi $(docker images --filter "dangling=true" -q --no-trunc)"
+alias dc="docker-compose"
+alias dcd="dc -f docker-compose.development.yml"
 
-# Docker container socket address resolver
-# jq shoul be installed
-# sock container_name internal_port
-sock() {
-  ip=`docker inspect test_sshd | jq ".[0].NetworkSettings.IPAddress"`
-  ip="${ip%\"}"
-  ip="${ip#\"}"
-  port=`docker port $1 $2` # returns 0.0.0.0:8342
-  port=${port#0.0.0.0:}    # remove 0.0.0.0:
-  echo "$ip:$port"
+# logs
+alias dclogs="dc logs --tail 20 -f"
+alias dcdlogs="dc logs --tail 20 -f"
+
+# list docker ps
+function dps() {
+  docker ps -f "name=$1"
 }
 
 function dpsa() {
   docker ps -f "name=$1" -a
 }
 
-function dps() {
-  docker ps -f "name=$1"
-}
-
+# cleanup
+# cheatsheet
 dcs() {
   echo '
-    # remove docker containers
-    docker ps -a
-    docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+  # remove docker containers
+  docker ps -a
+  docker rm $(docker ps -qa --no-trunc --filter "status=exited")
 
-    # remove docker images
-    docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+  # remove docker images
+  docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
-    # delete volumes:
-    docker volume rm $(docker volume ls -qf dangling=true)
+  # delete volumes:
+  docker volume rm $(docker volume ls -qf dangling=true)
   '
 }
 
 dcleanup(){
-  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+  docker rm -v $(docker ps --filter status=exited -q --no-trunc 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q --no-trunc 2>/dev/null) 2>/dev/null
 }

@@ -11,6 +11,11 @@ alias ls='exa'
 alias upd='sudo apt-get update && sudo apt-get upgrade'
 alias inst='sudo apt install'
 
+alias untar='tar -zxvf '
+
+alias wwwp='python -m http.server ' # port
+alias wwwr='ruby -run -ehttpd . -p' # port
+
 alias tch='_tch(){ mkdir -p `dirname $1` && touch $1 }; _tch '
 alias mkcd='_mkcd(){ mkdir -p "$1"; cd "$1" }; _mkcd '
 

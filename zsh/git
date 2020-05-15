@@ -2,7 +2,12 @@
 # Git
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+# TODO move useful aliases from zsh git plugin here and remove plugin
+
+alias git="stty sane && git"
+
 unalias gl # zsh git plugin
+unalias l
 
 alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git plugin aliases
 alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
@@ -10,6 +15,7 @@ alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
 alias gs="git show"
 
 alias gl='git log'
+alias l='git log'
 alias gls='git log --stat'
 alias gitl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
@@ -17,7 +23,9 @@ alias reflog="git reflog --date=iso"
 alias reflog2="git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'"
 alias walk_reflogs="git log --walk-reflogs --date=iso"
 
-alias gd="git diff"
+alias d="git diff"
+alias d1="git diff HEAD~1"
+alias d2="git diff HEAD~2"
 
 alias branches='git branch -l'
 alias b='branches'
@@ -31,14 +39,17 @@ alias hardl='git reset --hard'
 alias hardr='git reset --hard origin/$(current_branch)'
 alias hardm='git reset --hard origin/master'
 
+alias softuncommit="git reset HEAD~1"
+alias harduncommit="git reset --hard HEAD~1"
+
 alias s='git status'
 alias stash='git stash'
 alias pop='git stash pop'
 
-alias c='git commit -m'
+alias c='git commit --no-verify -m'
 alias add='git add -p'
-alias am='git commit --amend --no-edit'
-alias ame='git commit --amend'
+alias am='git commit --no-verify --amend --no-edit'
+alias ame='git commit --no-verify --amend'
 alias ama='git add --all && am'
 alias wip='git commit -m wip'
 alias save='git add --all && git commit -m "SAVEPOINT"'
