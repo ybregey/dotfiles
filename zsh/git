@@ -5,6 +5,7 @@
 # TODO move useful aliases from zsh git plugin here and remove plugin
 
 alias git="stty sane && git"
+alias gti="git"
 
 unalias gl # zsh git plugin
 unalias l

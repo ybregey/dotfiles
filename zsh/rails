@@ -6,9 +6,19 @@ unalias rg
 alias be='bundle exec'
 #alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
 alias bes='be sidekiq'
+
+
+alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test"
+alias tbe="tenv bundle exec"
+alias bet="tenv bundle exec"
+alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load"
+alias t="tbe rspec "
+
 alias cop='be rubocop'
 alias copa='be rubocop --auto-correct'
+
 alias gem_open='EDITOR="atom --wait" bundle open'
+
 alias redo_migration='rails db:migrate:redo'
 
 # redefined per project:
@@ -17,6 +27,10 @@ alias redo_migration='rails db:migrate:redo'
 
 compose() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
+}
+
+minirails() {
+  echo "rails new <app name> --api --skip-keeps --skip-action-mailer --skip-action-mailbox --skip-action-text --skip-active-storage --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-javascript --skip-turbolinks --skip-test --skip-system-test"
 }
 
 bake() {
