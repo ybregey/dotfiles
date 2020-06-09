@@ -21,6 +21,14 @@ alias gem_open='EDITOR="atom --wait" bundle open'
 
 alias redo_migration='rails db:migrate:redo'
 
+#rdmup() {
+#  rails db:migrate:up VERSION=$1
+#}
+
+#rdmdown() {
+#  rails db:migrate:down VERSION=$1
+#}
+   
 # redefined per project:
 #alias ptdb='RET rdd && RET rdc && RET rdm' # prepare test db
 #alias pddb='RED rdd && RED rdc && RED rdm' # prepare dev db

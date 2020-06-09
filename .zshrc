@@ -4,10 +4,10 @@ setopt ignore_eof # wtf?
 stty sane
 alias sane="stty sane"
 
-# TODO export PATH=$HOME/bin:/usr/bin:/usr/local/bin:$PATH
-# TODO remove export PATH=~/.asdf/shims:~/.asdf/bin:~/bin:/usr/bin:/usr/local/bin:~/.cargo/bin:~/.local/bin:/usr/local/sbin:/usr/sbin:/sbin:/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:~/.fzf/bin
-# TEMPFIX PATH gets messy after each source ~/.zshrc
 export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/bin:/usr/bin:/usr/local/bin:/snap/bin:~/.local/bin:/sbin:/usr/sbin:/usr/local/sbin:~/.cargo/bin
+
+# git fuzzy
+#export PATH="/home/kaoss/git-fuzzy/bin:$PATH"
 
 java!() {
   export PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin

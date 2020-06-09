@@ -7,6 +7,8 @@
 # gem install pry-theme
 Pry.config.theme = "pry-modern-256"
 
+# Benchmarks
+
 if ENV["BENCHMARK"]
   require 'bundler/inline'
 
@@ -15,12 +17,6 @@ if ENV["BENCHMARK"]
     gem 'benchmark-ips'
   end
 end
-
-#require 'awesome_print' unless defined?(AwesomePrint)
-#AwesomePrint.pry!
-
-# useful when pasting json
-def null; nil end
 
 def bm(iterations)
   require "benchmark"
@@ -49,7 +45,6 @@ def bm_compare(n, **examples)
   end
 end
 
-
 def time_method(method=nil, *args)
   beginning_time = Time.now
 
@@ -64,10 +59,25 @@ def time_method(method=nil, *args)
   puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
 end
 
+# Helpers
+
+def ap!
+  require 'awesome_print' unless defined?(AwesomePrint)
+  AwesomePrint.pry!
+end
+
+# returns the instance methods on klass that aren't already on Object
+def m(klass)
+  klass.public_instance_methods - Object.public_instance_methods
+end
+
+# useful when pasting json
+def null; nil end
+
 # Rails
 def rcc
   Rails.cache.clear
-  puts "Cache cleared!"
+  puts "Rails cache cleared!"
 end
 
 def as!
@@ -86,15 +96,36 @@ end
 def params
   super
  resque
-   request.params if defined?(request)
+   defined?(request) ? request.params : super
 end
 
+# recognize route
 def r(path)
   %i[get post put patch delete].each_with_object({}) do |method, memo|
     memo[method.to_s.upcase] = Rails.application.routes.recognize_path(path, method: method) rescue next
   end
 end
 
+# todo
+#def let(name)
+#  return super(name) if defined?(let)
+#
+#  val = yield
+#  define_method(name) { val }
+#end
+
+#def let!(name)
+#  return super(name) if defined?(super)
+#
+#  val = yield
+#  define_method(name) { val }
+#end
+
+# def j(*args)
+#   JSON.load(...)
+# end
+
+# Pry cheatsheet
 def cheatsheet
   puts <<-TXT
     help ls -- Display command options for pry command ls
