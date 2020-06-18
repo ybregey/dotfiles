@@ -22,10 +22,9 @@ def bm(iterations)
   require "benchmark"
 
   Benchmark.bm do |bm|
-    # execute block
     bm.report do
       iterations.times do
-	yield
+        yield
       end
     end
   end
@@ -85,8 +84,12 @@ def as!
 end
 
 # log SQL queries for debugging
-if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
+def sqlog
   ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(ActiveRecord::Base)
+end
+
+if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
+  sqlog
 end
 
 def dbexec(*args)
@@ -96,7 +99,7 @@ end
 def params
   super
  resque
-   defined?(request) ? request.params : super
+  defined?(request) ? request.params : super
 end
 
 # recognize route

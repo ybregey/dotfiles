@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.64.6",
+  "settingsVersion": "1.66",
   "exclusionRules": [
     {
       "pattern": "https?://www.codecademy.com/*",
@@ -28,19 +28,19 @@
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
-  "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nunmap i\nunmap v\nunmap V\nunmap h\nunmap l\nmap [ goPrevious\nmap ] goNext\nmap <m-right> nextTab\nmap <m-left> previousTab\nmap < moveTabLeft\nmap > moveTabRight\nmap <a-w> removeTab\nmap l LinkHints.activateMode\nmap L LinkHints.activateModeToOpenInNewTab\nmap <a-l> LinkHints.activateModeWithQueue",
+  "hideHud": true,
+  "keyMappings": "# Insert your preferred key mappings here.\n\nunmap i\nunmap v\nunmap V\nunmap h\nunmap l\nmap / removeTab\nmap \\ copyCurrentUrl\nmap ' goUp\nmap [ goPrevious\nmap ] goNext\nmap <m-right> nextTab\nmap <m-left> previousTab\nmap < moveTabLeft\nmap > moveTabRight\nmap <a-w> removeTab\nmap l LinkHints.activateMode\nmap L LinkHints.activateModeToOpenInNewTab\nmap <a-l> LinkHints.activateModeWithQueue",
   "linkHintCharacters": "fjdkslrueiwvm",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
   "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
   "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
   "regexFindMode": false,
-  "ignoreKeyboardLayout": false,
+  "ignoreKeyboardLayout": true,
   "scrollStepSize": 60,
   "smoothScroll": true,
   "grabBackFocus": true,
-  "searchEngines": "w: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: http://www.google.com/search?q=%s Google\n# l: http://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: http://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: http://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchEngines": "",
   "searchUrl": "https://www.google.com/search?q=",
   "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
 }
