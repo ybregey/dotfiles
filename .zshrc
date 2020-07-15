@@ -53,11 +53,12 @@ ezshc(){
 source $HOME/zsh/user to .zshrc
 source $HOME/zsh/git to .zshrc
 source $HOME/zsh/fzf to .zshrc
-source $HOME/zsh/elixir to .zshrc
+#source $HOME/zsh/elixir to .zshrc
 #source $HOME/zsh/python to .zshrc
 source $HOME/zsh/rails to .zshrc
 #source $HOME/zsh/betty to .zshrc
 source $HOME/zsh/asdf to .zshrc
 source $HOME/zsh/docker to .zshrc
 source $HOME/zsh/network to .zshrc
-source <(cat $HOME/zsh/projects/*)
+#source <(cat $HOME/zsh/projects/*)
+source $HOME/zsh/projects/overhaul

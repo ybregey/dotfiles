@@ -153,3 +153,10 @@ def cheatsheet
     play -l -- Execute the line in the current debugging context
   TXT
 end
+
+
+def ti
+  as!
+
+  Time.current.to_i * 1000
+end

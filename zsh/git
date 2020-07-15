@@ -15,6 +15,9 @@ alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
 
 alias gs="git show"
 
+# delete branch
+alias k="git branch -D"
+
 alias gl='git log'
 alias l='git log'
 alias gls='git log --stat'
@@ -38,6 +41,7 @@ alias m='git checkout master'
 alias qa='git checkout qa'
 alias sts='git checkout sts'
 alias hardl='git reset --hard'
+alias clean='git clean -fd'
 alias hardr='git reset --hard origin/$(current_branch)'
 alias hardm='git reset --hard origin/master'
 
