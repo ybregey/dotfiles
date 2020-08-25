@@ -17,7 +17,7 @@
   rl = reflog --pretty=reflog
   gls = log --stat
 [core]
-  excludesfile = /home/kaoss/.gitignore_global
+  excludesfile = ~/.gitignore_global
   autocrlf = input
 [color]
   ui = true
