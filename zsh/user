@@ -5,8 +5,8 @@ alias a='atom'
 
 alias h='history | grep '
 
-alias cat='bat'
-alias ls='exa'
+#alias cat='bat'
+#alias ls='exa'
 
 #bindkey "^X\x7F" backward-kill-line # don't recall why it was needed. MacOS?
 
@@ -41,11 +41,19 @@ unwork() {
   wmctrl -r "Telegram" -b remove,skip_taskbar
 }
 
+undistract() {
+  wmctrl -r "Settings" -b add,skip_taskbar
+  wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
+  wmctrl -r "Slack" -b add,skip_taskbar
+  wmctrl -r "Postman" -b add,skip_taskbar
+  wmctrl -r "Telegram" -b add,skip_taskbar
+}
+
 trim_taskbar() {
   wmctrl -r "Settings" -b add,skip_taskbar
   wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
   #wmctrl -r "Slack" -b add,skip_taskbar
-  wmctrl -r "Postman" -b add,skip_taskbar
+  #wmctrl -r "Postman" -b add,skip_taskbar
 }
 
 untrim_taskbar() {
@@ -54,6 +62,17 @@ untrim_taskbar() {
   wmctrl -r "Slack" -b remove,skip_taskbar
   wmctrl -r "Postman" -b remove,skip_taskbar
 }
+
+
+hide_slack() {
+  wmctrl -r "Slack" -b add,skip_taskbar
+}
+
+
+unhide_slack() {
+  wmctrl -r "Slack" -b remove,skip_taskbar
+}
+
 
 combos() {
   echo '

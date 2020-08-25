@@ -29,7 +29,7 @@ z # jump to directories
 sudo
 dotenv
 asdf
-fzf-zsh
+fzf
 git
 rails
 zsh-autosuggestions
