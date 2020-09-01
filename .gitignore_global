@@ -1,3 +1,4 @@
 .tool-versions
 .env.development.local
 .env.local
+~/.atom/local-history

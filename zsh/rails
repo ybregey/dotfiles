@@ -39,7 +39,7 @@ alias redo_migration='rails db:migrate:redo'
 #rdmdown() {
 #  rails db:migrate:down VERSION=$1
 #}
-   
+
 # redefined per project:
 #alias ptdb='RET rdd && RET rdc && RET rdm' # prepare test db
 #alias pddb='RED rdd && RED rdc && RED rdm' # prepare dev db
@@ -47,10 +47,10 @@ alias redo_migration='rails db:migrate:redo'
 sidekiq_stats() {
   echo "statistics (number of tasks) by each queue:"
   echo "Sidekiq::Stats.new.queues"
-  
+
   echo "global ststistics:"
   echo "Sidekiq::Stats.new.fetch_stats!"
- 
+
   echo "statistics seprately:"
   echo "Sidekiq::Stats.new.processed"
 
@@ -69,4 +69,21 @@ minirails() {
 
 bake() {
   bundle exec rake $@
+}
+
+migrations() {
+  echo "rake db:migrate:status"
+  rake db:migrate:status
+}
+
+db_ver() {
+  echo "rake db:version"
+  rake db:version
+}
+
+db_cheatsheet() {
+ echo "PGPASSWORD=<password> createdb   -h <host> --username <username> <database>"
+ echo "PGPASSWORD=<password> dropdb     -h <host> --username <username> <database>"
+ echo "PGPASSWORD=<password> pg_dump    -h <host> --username <username> --verbose --clean --no-owner --no-acl -Z4 -Fc <database> > <dump_filename>"
+ echo "PGPASSWORD=<password> pg_restore -h <host> --username <username> --verbose --clean --no-owner --no-acl -j <jobs> -d <database> <dump_filename>"
 }

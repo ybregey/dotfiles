@@ -26,10 +26,7 @@ export ZSH_DOTENV_PROMPT=0
 
 plugins=(
 z # jump to directories
-sudo
 dotenv
-asdf
-fzf
 git
 rails
 zsh-autosuggestions
@@ -44,11 +41,7 @@ source $ZSH/oh-my-zsh.sh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 alias zsh!="source ~/.zshrc"
-ezshc(){
-  nano ~/.zshrc
-  source ~/.zshrc
-  echo "new .zshrc sourced."
-}
+alias zshconfig='nano $HOME/.zshrc'
 
 source $HOME/zsh/user to .zshrc
 source $HOME/zsh/git to .zshrc

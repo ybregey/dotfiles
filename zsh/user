@@ -3,25 +3,27 @@ export EDITOR='vi'
 
 alias a='atom'
 
-alias h='history | grep '
+alias distro='cat /etc/*-release'
+alias sapu='sudo apt-get update'
+alias supr='sudo apt-get update && sudo apt-get upgrade'
+alias sapti='sudo apt install'
 
-#alias cat='bat'
-#alias ls='exa'
+alias L='| less'
+alias G='| grep'
 
-#bindkey "^X\x7F" backward-kill-line # don't recall why it was needed. MacOS?
+alias h='history | grep'
+alias l='ls -lahF | grep'
 
-alias upd='sudo apt-get update && sudo apt-get upgrade'
-alias inst='sudo apt install'
-
+# archives
 alias untar='tar -zxvf '
 
-alias wwwp='python -m http.server ' # port
-alias wwwr='ruby -run -ehttpd . -p' # port
+# run web servers
+alias wwwr='ruby -run -ehttpd . -p 8000'
+alias wwwp='python3 -m http.server' # 8000 port
 
+# dir helpers
 alias tch='_tch(){ mkdir -p `dirname $1` && touch $1 }; _tch '
 alias mkcd='_mkcd(){ mkdir -p "$1"; cd "$1" }; _mkcd '
-
-alias dev!="cd ~/storage/dev"
 
 # convenience aliases for editing configs
 alias ev='vi ~/.vimrc'
@@ -83,3 +85,4 @@ combos() {
     Ctrl + L – clear the terminal.
   '
 }
+
