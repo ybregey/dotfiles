@@ -5,15 +5,16 @@ export DISABLE_SPRING=1
 # unalias rg
 
 alias be='bundle exec'
-#alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
+alias rs='be rails server'
 alias bes='be sidekiq'
-
 
 alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test"
 alias tbe="tenv bundle exec"
-alias bet="tenv bundle exec"
-alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load"
+alias bet="tbe"
+alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:test:prepare"
 alias t="tbe rspec "
+
+#alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
 
 #t() {
 #  if [ -f Gemfile ]; then
@@ -81,7 +82,7 @@ db_ver() {
   rake db:version
 }
 
-db_cheatsheet() {
+ch_db() {
  echo "PGPASSWORD=<password> createdb   -h <host> --username <username> <database>"
  echo "PGPASSWORD=<password> dropdb     -h <host> --username <username> <database>"
  echo "PGPASSWORD=<password> pg_dump    -h <host> --username <username> --verbose --clean --no-owner --no-acl -Z4 -Fc <database> > <dump_filename>"

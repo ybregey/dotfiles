@@ -1,18 +1,4 @@
-setopt ignore_eof # wtf?
-
-# fix ^M on return key press
-stty sane
-alias sane="stty sane"
-
-export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/bin:/usr/bin:/usr/local/bin:/snap/bin:~/.local/bin:/sbin:/usr/sbin:/usr/local/sbin:~/.cargo/bin
-
-# git fuzzy
-#export PATH="/home/kaoss/git-fuzzy/bin:$PATH"
-
-java!() {
-  export PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
-}
-
+export DISABLE_AUTO_UPDATE=true
 export MAILCHECK=0
 export ZSH_HIGHLIGHT_MAXLENGTH=30
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
@@ -23,6 +9,18 @@ export BAT_THEME="TwoDark"
 export CASE_SENSITIVE=1
 export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
+
+# PATH config
+export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/bin:/usr/bin:/usr/local/bin:/snap/bin:~/.local/bin:/sbin:/usr/sbin:/usr/local/sbin:~/.cargo/bin
+fpath=(/usr/local/share/zsh-completions $fpath) # functions definition path
+java!() {
+  export PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+}
+
+# keyboard fixes
+setopt ignore_eof # wtf?
+stty sane # fix ^M on return key press
+alias sane="stty sane"
 
 plugins=(
 z # jump to directories
@@ -37,11 +35,8 @@ zsh-syntax-highlighting
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 alias zsh!="source ~/.zshrc"
-alias zshconfig='nano $HOME/.zshrc'
+alias czsh='nano $HOME/.zshrc'
 
 source $HOME/zsh/user to .zshrc
 source $HOME/zsh/git to .zshrc
