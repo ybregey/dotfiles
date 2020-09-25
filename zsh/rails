@@ -4,11 +4,14 @@ export DISABLE_SPRING=1
 # TODO ripgrep
 # unalias rg
 
-alias be='bundle exec'
-alias rs='be rails server'
-alias bes='be sidekiq'
+alias be="bundle exec"
+alias rs="be rails server"
+alias rc="be rails console"
+alias bern="be rails runner"
+alias bes="be sidekiq"
+alias ber="be ruby"
 
-alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test"
+alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test NOCOV=1" # NOCOV no coverage
 alias tbe="tenv bundle exec"
 alias bet="tbe"
 alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:test:prepare"
@@ -45,21 +48,6 @@ alias redo_migration='rails db:migrate:redo'
 #alias ptdb='RET rdd && RET rdc && RET rdm' # prepare test db
 #alias pddb='RED rdd && RED rdc && RED rdm' # prepare dev db
 
-sidekiq_stats() {
-  echo "statistics (number of tasks) by each queue:"
-  echo "Sidekiq::Stats.new.queues"
-
-  echo "global ststistics:"
-  echo "Sidekiq::Stats.new.fetch_stats!"
-
-  echo "statistics seprately:"
-  echo "Sidekiq::Stats.new.processed"
-
-  echo "history:"
-  echo "Sidekiq::Stats::History.new(2, Date.parse('2019-02-05')).processed"
-}
-
-
 compose() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
 }
@@ -72,19 +60,12 @@ bake() {
   bundle exec rake $@
 }
 
-migrations() {
+migrations_status() {
   echo "rake db:migrate:status"
   rake db:migrate:status
 }
 
-db_ver() {
+db_version() {
   echo "rake db:version"
   rake db:version
-}
-
-ch_db() {
- echo "PGPASSWORD=<password> createdb   -h <host> --username <username> <database>"
- echo "PGPASSWORD=<password> dropdb     -h <host> --username <username> <database>"
- echo "PGPASSWORD=<password> pg_dump    -h <host> --username <username> --verbose --clean --no-owner --no-acl -Z4 -Fc <database> > <dump_filename>"
- echo "PGPASSWORD=<password> pg_restore -h <host> --username <username> --verbose --clean --no-owner --no-acl -j <jobs> -d <database> <dump_filename>"
 }

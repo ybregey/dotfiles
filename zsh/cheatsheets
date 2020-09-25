@@ -1,0 +1,53 @@
+ch_mongo() {
+  echo "db.setLogLevel(1) # log queries"
+}
+
+ch_db() {
+ echo "PGPASSWORD=<password> createdb   -h <host> --username <username> <database>"
+ echo "PGPASSWORD=<password> dropdb     -h <host> --username <username> <database>"
+ echo "PGPASSWORD=<password> pg_dump    -h <host> --username <username> --verbose --clean --no-owner --no-acl -Z4 -Fc <database> > <dump_filename>"
+ echo "PGPASSWORD=<password> pg_restore -h <host> --username <username> --verbose --clean --no-owner --no-acl -j <jobs> -d <database> <dump_filename>"
+}
+
+ch_rails() {
+  echo "app.post(url, params: {message: "message"}, headers: {authorization: "token" })"
+}
+
+ch_curl() {
+  echo "curl -X POST -F 'username=davidwalsh' -F 'password=something' http://domain.tld/post-to-me.php"
+  echo "curl -X POST 'https://connect.calamp.co.uk/connect/services/login?useAuthToken=true' --header 'calamp-services-app: d8b98aad-cc6e-4899-a86d-e2848eaf03b4' -d 'username=ohcalampctcapi&password=Changeme123!'"
+}
+
+ch_sidekiq() {
+  echo "statistics (number of tasks) by each queue:"
+  echo "Sidekiq::Stats.new.queues"
+
+  echo "global ststistics:"
+  echo "Sidekiq::Stats.new.fetch_stats!"
+
+  echo "statistics seprately:"
+  echo "Sidekiq::Stats.new.processed"
+
+  echo "history:"
+  echo "Sidekiq::Stats::History.new(2, Date.parse('2019-02-05')).processed"
+}
+
+ch_docker() {
+  echo '
+  # remove docker containers
+  docker ps -a
+  docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+
+  # remove docker images
+  docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+
+  # delete volumes:
+  docker volume rm $(docker volume ls -qf dangling=true)
+  '
+}
+
+ch_git() {
+  echo "
+    git rebase -s recursive -X <ours/theirs>
+  "
+}

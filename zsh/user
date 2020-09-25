@@ -48,12 +48,13 @@ undistract() {
   wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
   wmctrl -r "Slack" -b add,skip_taskbar
   wmctrl -r "Postman" -b add,skip_taskbar
-  wmctrl -r "Telegram" -b add,skip_taskbar
+  wmctrl -r "Zoom - Licensed Account" -b add,skip_taskbar
 }
 
 trim_taskbar() {
   wmctrl -r "Settings" -b add,skip_taskbar
   wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
+  wmctrl -r "Zoom - Licensed Account" -b add,skip_taskbar
   #wmctrl -r "Slack" -b add,skip_taskbar
   #wmctrl -r "Postman" -b add,skip_taskbar
 }
@@ -65,7 +66,6 @@ untrim_taskbar() {
   wmctrl -r "Postman" -b remove,skip_taskbar
 }
 
-
 hide_slack() {
   wmctrl -r "Slack" -b add,skip_taskbar
 }
@@ -75,6 +75,8 @@ unhide_slack() {
   wmctrl -r "Slack" -b remove,skip_taskbar
 }
 
+
+function setzoom() { gsettings set org.gnome.desktop.interface text-scaling-factor "$@"; }
 
 combos() {
   echo '
@@ -86,3 +88,6 @@ combos() {
   '
 }
 
+mem() {
+  watch -n 0.5 'pmap -x $@ | grep total' 
+}

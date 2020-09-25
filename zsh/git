@@ -5,7 +5,9 @@
 # TODO move useful aliases from zsh git plugin here and remove plugin
 
 alias git="stty sane && git"
-alias gti="git"
+alias gti="git" # typo
+alias got="git" # typo
+alias gt="git"
 
 alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git plugin aliases
 alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
@@ -28,12 +30,12 @@ alias d2="git diff HEAD~2"
 
 alias b='git branch -v'
 
-alias gco='git checkout'
+alias gco='git switch'
+
 alias new='git checkout -b'
-alias p='git checkout -'
-alias m='git checkout master'
-alias qa='git checkout qa'
-alias sts='git checkout sts'
+alias p='gco -'
+alias m='gco master'
+alias qa='gco qa'
 alias hardl='git reset --hard'
 alias clean='git clean -fd'
 alias hardr='git reset --hard origin/$(current_branch)'
@@ -55,7 +57,7 @@ alias wip='git commit -m wip'
 alias save='git add --all && git commit -m "SAVEPOINT"'
 alias gac='git add . && git commit -a -m '
 
-alias fpush='git push -f origin $(current_branch)'
+alias fpush='git push --force-with-lease origin $(current_branch)'
 
 alias gpl='git pull --rebase'
 alias gplas='gpl --autostash'
@@ -64,6 +66,7 @@ alias grm='git rebase master'
 alias grqa='git rebase qa'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
+alias gr='git rebase'
 
 alias gsu="git submodule update --init --recursive"
 
@@ -81,10 +84,4 @@ dff() {
 
 back() {
   git checkout "${1:-1}" # 1 if not provided
-}
-
-git_cheatsheet() {
-  echo "
-    git rebase -s recursive -X <ours/theirs>
-  "
 }
