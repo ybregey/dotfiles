@@ -3,11 +3,16 @@ export EDITOR='vi'
 
 alias a='atom'
 
+# sudo apt install xclip -y
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 alias distro='cat /etc/*-release'
 alias sapu='sudo apt-get update'
 alias supr='sudo apt-get update && sudo apt-get upgrade'
 alias sapti='sudo apt install'
 
+# FIXME
 alias L='| less'
 alias G='| grep'
 
@@ -70,7 +75,6 @@ hide_slack() {
   wmctrl -r "Slack" -b add,skip_taskbar
 }
 
-
 unhide_slack() {
   wmctrl -r "Slack" -b remove,skip_taskbar
 }
@@ -91,3 +95,9 @@ combos() {
 mem() {
   watch -n 0.5 'pmap -x $@ | grep total' 
 }
+
+# emulate bash PROMPT_COMMAND (only for zsh)
+precmd() { eval "$PROMPT_COMMAND" }
+# open new terminal in same dir
+PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
+[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"

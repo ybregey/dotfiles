@@ -80,7 +80,13 @@ def rcc
 end
 
 def as!
-  require 'active_support/all'
+  require "active_support/all"
+end
+
+def fb!
+  require "factory_bot"
+  include FactoryBot::Syntax::Methods
+  FactoryBot.find_definitions
 end
 
 # log SQL queries for debugging
@@ -92,7 +98,7 @@ if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
   sqlog
 end
 
-def dbexec(*args)
+def ce(*args)
   ActiveRecord::Base.connection.execute(*args)
 end
 
@@ -109,20 +115,18 @@ def r(path)
   end
 end
 
-# todo
-#def let(name)
-#  return super(name) if defined?(let)
-#
-#  val = yield
-#  define_method(name) { val }
-#end
+def let(var_name, &block)
+ return super if defined?(RSpec)
 
-#def let!(name)
-#  return super(name) if defined?(super)
-#
-#  val = yield
-#  define_method(name) { val }
-#end
+ define_method(var_name) { block.call }
+end
+
+def let!(var_name, &block)
+  return super if defined?(RSpec)
+
+  # TODO: @ybrehei add memoization
+  let(var_name, &block)
+end
 
 # def j(*args)
 #   JSON.load(...)
