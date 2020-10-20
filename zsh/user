@@ -7,6 +7,11 @@ alias a='atom'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
+# copy public key
+alias cpkey="pbcopy < ~/.ssh/id_rsa.pub"
+# copy last git commit message
+alias cplast="git log -1 --pretty=%B | pbcopy"
+
 alias distro='cat /etc/*-release'
 alias sapu='sudo apt-get update'
 alias supr='sudo apt-get update && sudo apt-get upgrade'

@@ -115,6 +115,7 @@ def r(path)
   end
 end
 
+# useful for copypasting let setups from specs
 def let(var_name, &block)
  return super if defined?(RSpec)
 
