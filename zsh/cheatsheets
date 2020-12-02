@@ -51,3 +51,14 @@ ch_git() {
     git rebase -s recursive -X <ours/theirs>
   "
 }
+
+ch_jsonb() {
+  echo "
+    Operator	Right	Operand	Type	Description	Example
+    @>	jsonb	Does the left JSON value contain within it the right value?	'{"a":1, "b":2}'::jsonb @> '{"b":2}'::jsonb
+    <@	jsonb	Is the left JSON value contained within the right value?	'{"b":2}'::jsonb <@ '{"a":1, "b":2}'::jsonb
+    ?	text	Does the key/element string exist within the JSON value?	'{"a":1, "b":2}'::jsonb ? 'b'
+    ?|	text[]	Do any of these key/element strings exist?	'{"a":1, "b":2, "c":3}'::jsonb ?| array['b', 'c']
+    ?&	text[]	Do all of these key/element strings exist?	'["a", "b"]'::jsonb ?& array['a', 'b']
+  "
+}

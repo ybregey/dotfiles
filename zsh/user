@@ -1,3 +1,9 @@
+# do not paste on touchpad middle-click
+fix_touchpad() {
+  xinput list
+  echo "xinput set-button-map 15 1 0 3"
+}
+
 # Preferred editor for local and remote sessions
 export EDITOR='vi'
 
@@ -23,6 +29,13 @@ alias G='| grep'
 
 alias h='history | grep'
 alias l='ls -lahF | grep'
+
+#alias egrep='egrep --color=auto'
+#alias fgrep='fgrep --color=auto'
+#alias grep='grep --color=auto'
+#alias l.='ls -d .* --color=auto'
+#alias ll='ls -l --color=auto'
+#alias ls='ls --color=auto'
 
 # archives
 alias untar='tar -zxvf '
@@ -56,15 +69,18 @@ unwork() {
 undistract() {
   wmctrl -r "Settings" -b add,skip_taskbar
   wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
-  wmctrl -r "Slack" -b add,skip_taskbar
+  #wmctrl -r "Slack" -b add,skip_taskbar
   wmctrl -r "Postman" -b add,skip_taskbar
   wmctrl -r "Zoom - Licensed Account" -b add,skip_taskbar
+  wmctrl -r "Telegram" -b add,skip_taskbar
+  wmctrl -r "Spotify Premium" -b add,skip_taskbar
 }
 
 trim_taskbar() {
   wmctrl -r "Settings" -b add,skip_taskbar
   wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
   wmctrl -r "Zoom - Licensed Account" -b add,skip_taskbar
+  wmctrl -r "Telegram" -b remove,skip_taskbar
   #wmctrl -r "Slack" -b add,skip_taskbar
   #wmctrl -r "Postman" -b add,skip_taskbar
 }
@@ -106,3 +122,15 @@ precmd() { eval "$PROMPT_COMMAND" }
 # open new terminal in same dir
 PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 [[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
+
+# Sound
+# pacmd list-cards
+# turn headset_head_unit mode on
+headset() {
+  pactl set-card-profile bluez_card.94_DB_56_89_48_1F headset_head_unit
+}
+
+# turn a2dp_sink mode on
+a2dp_sink() {
+  pactl set-card-profile bluez_card.94_DB_56_89_48_1F a2dp_sink_aac
+}
