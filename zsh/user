@@ -1,7 +1,8 @@
 # do not paste on touchpad middle-click
+# TODO grep and cur SYNA3082:00 06CB:8265 Touchpad index
 fix_touchpad() {
   xinput list
-  echo "xinput set-button-map 15 1 0 3"
+  echo "xinput set-button-map <SYNA3082:00 06CB:8265 Touchpad index here> 1 0 3"
 }
 
 # Preferred editor for local and remote sessions
@@ -100,6 +101,13 @@ unhide_slack() {
   wmctrl -r "Slack" -b remove,skip_taskbar
 }
 
+unhide_postman() {
+  wmctrl -r "Postman" -b remove,skip_taskbar
+}
+
+unhide_telegram() {
+  wmctrl -r "Telegram" -b remove,skip_taskbar
+}
 
 function setzoom() { gsettings set org.gnome.desktop.interface text-scaling-factor "$@"; }
 
@@ -132,5 +140,18 @@ headset() {
 
 # turn a2dp_sink mode on
 a2dp_sink() {
-  pactl set-card-profile bluez_card.94_DB_56_89_48_1F a2dp_sink_aac
+  pactl set-card-profile bluez_card.94_DB_56_89_48_1F a2dp_sink
+}
+
+keychron() {
+  echo '
+    fn1 + Q,W,E 4sm: pair BT
+    fn1 + Q,W,E : switch BT device
+    fn1 + Left/Right : change RGB
+    fn1 + S + O 4s : disable autosleep
+    fn1 + Light : on/off backlight
+    fn1 + K + R 4s : switch right Ctrl/Alt layout (use fn1 as modifier for existing layout)
+    fn1 + L + Light 4s : lock light effect
+    fn1 + J + Z 4s : factory reset
+  '
 }
