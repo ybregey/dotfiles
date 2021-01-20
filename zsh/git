@@ -36,10 +36,10 @@ alias new='git checkout -b'
 alias p='gco -'
 alias m='gco master'
 alias qa='gco qa'
-alias hardl='git reset --hard'
 alias clean='git clean -fd'
-alias hardr='git reset --hard origin/$(current_branch)'
-alias hardm='git reset --hard origin/master'
+alias mhard='git reset --hard origin/master'
+alias rhard='git reset --hard origin/$(current_branch)'
+alias lhard='git reset --hard'
 
 alias softuncommit="git reset HEAD~1"
 alias harduncommit="git reset --hard HEAD~1"

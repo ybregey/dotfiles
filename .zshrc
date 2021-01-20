@@ -17,6 +17,12 @@ java!() {
   export PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
 }
 
+# emulate bash PROMPT_COMMAND
+precmd() { eval "$PROMPT_COMMAND" }
+# open new terminal in same dir
+PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
+[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
+
 # keyboard fixes
 setopt ignore_eof # wtf?
 stty sane # fix ^M on return key press

@@ -109,8 +109,6 @@ unhide_telegram() {
   wmctrl -r "Telegram" -b remove,skip_taskbar
 }
 
-function setzoom() { gsettings set org.gnome.desktop.interface text-scaling-factor "$@"; }
-
 combos() {
   echo '
     Ctrl + U – delete from the cursor to the start of the line.
@@ -122,14 +120,8 @@ combos() {
 }
 
 mem() {
-  watch -n 0.5 'pmap -x $@ | grep total' 
+  watch -n 0.5 'pmap -x $@ | grep total'
 }
-
-# emulate bash PROMPT_COMMAND (only for zsh)
-precmd() { eval "$PROMPT_COMMAND" }
-# open new terminal in same dir
-PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
-[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
 
 # Sound
 # pacmd list-cards
@@ -143,15 +135,6 @@ a2dp_sink() {
   pactl set-card-profile bluez_card.94_DB_56_89_48_1F a2dp_sink
 }
 
-keychron() {
-  echo '
-    fn1 + Q,W,E 4sm: pair BT
-    fn1 + Q,W,E : switch BT device
-    fn1 + Left/Right : change RGB
-    fn1 + S + O 4s : disable autosleep
-    fn1 + Light : on/off backlight
-    fn1 + K + R 4s : switch right Ctrl/Alt layout (use fn1 as modifier for existing layout)
-    fn1 + L + Light 4s : lock light effect
-    fn1 + J + Z 4s : factory reset
-  '
-}
+# display gamma
+setzoom() { gsettings set org.gnome.desktop.interface text-scaling-factor "$@"; }
+gamma() { xgamma -gamma $@ }
