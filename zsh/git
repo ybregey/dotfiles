@@ -19,6 +19,7 @@ alias k="git branch -D"
 
 alias gl='git log --stat'
 alias lg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gitsearch="git log -p -S"
 
 alias reflog="git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'"
 alias reflog_iso="git reflog --date=iso"

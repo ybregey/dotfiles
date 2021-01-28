@@ -17,6 +17,8 @@ alias bet="tbe"
 alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load"
 alias t="tbe rspec "
 
+alias rrg="rails routes | grep"
+
 #alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
 
 #t() {

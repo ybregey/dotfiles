@@ -18,7 +18,7 @@ if ENV["BENCHMARK"]
   end
 end
 
-def bm(iterations)
+def __bm(iterations)
   require "benchmark"
 
   Benchmark.bm do |bm|
@@ -30,8 +30,13 @@ def bm(iterations)
   end
 end
 
-def bm_compare(n, **examples)
+def __bmc(examples = nil, n = 100)
   require "benchmark"
+
+  if !examples
+    puts "__bmc({ 'name1' => lambda1, 'name2' => lambda2 }, 1000)"
+    return
+  end
 
   Benchmark.bm do |bm|
     examples.each do |name, block|
@@ -44,7 +49,21 @@ def bm_compare(n, **examples)
   end
 end
 
-def time_method(method=nil, *args)
+def __ips(examples = nil)
+  require 'benchmark/ips'
+
+  if !examples
+    puts "__ips({ 'name1' => lambda1, 'name2' => lambda2 })"
+    return
+  end
+
+  Benchmark.ips do |x|
+    examples.each { |name, block| x.report(name, block) }
+    x.compare!
+  end
+end
+
+def __msr(method=nil, *args)
   beginning_time = Time.now
 
   if block_given?
