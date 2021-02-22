@@ -1,14 +1,17 @@
-# do not paste on touchpad middle-click
+# do not paste with middle-click
 # TODO grep and cur SYNA3082:00 06CB:8265 Touchpad index
 fix_touchpad() {
   xinput list
   echo "xinput set-button-map <SYNA3082:00 06CB:8265 Touchpad index here> 1 0 3"
 }
 
-# Preferred editor for local and remote sessions
 export EDITOR='vi'
 
 alias a='atom'
+alias v='vi'
+alias n='nano'
+
+alias w='which'
 
 # sudo apt install xclip -y
 alias pbcopy='xclip -selection clipboard'
@@ -25,8 +28,8 @@ alias supr='sudo apt-get update && sudo apt-get upgrade'
 alias sapti='sudo apt install'
 
 # FIXME
-alias L='| less'
-alias G='| grep'
+#alias L='| less'
+#alias G='| grep'
 
 alias h='history | grep'
 alias l='ls -lahF | grep'

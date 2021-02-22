@@ -19,17 +19,27 @@ ch_curl() {
 }
 
 ch_sidekiq() {
-  echo "statistics (number of tasks) by each queue:"
-  echo "Sidekiq::Stats.new.queues"
+  echo "
+    require "sidekiq/api"
 
-  echo "global ststistics:"
-  echo "Sidekiq::Stats.new.fetch_stats!"
+    Sidekiq::RetrySet.new.clear
+    Sidekiq::ScheduledSet.new.clear
+    Sidekiq::DeadSet.new.clear
+    Sidekiq::Stats.new.reset # clear 'Processed' and 'Failed' jobs
 
-  echo "statistics seprately:"
-  echo "Sidekiq::Stats.new.processed"
+    Sidekiq::Stats.new.fetch_stats!
+    Sidekiq::Stats.new.queues # {"mailers"=>25, "default"=>1}
+    Sidekiq::Stats.new.processed
+    Sidekiq::Stats::History.new(2, Date.parse('2019-02-05')).processed
 
-  echo "history:"
-  echo "Sidekiq::Stats::History.new(2, Date.parse('2019-02-05')).processed"
+    queue = Sidekiq::Queue.new("notification")
+    queue.count
+    queue.each { |job| job.item } # hash content
+    # queue.clear
+
+    # redis
+    Sidekiq.redis { |redis| redis.keys }
+  "
 }
 
 ch_docker() {

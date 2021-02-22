@@ -16,6 +16,8 @@ alias gs="git show"
 
 # delete branch
 alias k="git branch -D"
+# rename branch
+alias br="git branch -m"
 
 alias gl='git log --stat'
 alias lg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
@@ -86,3 +88,5 @@ dff() {
 back() {
   git checkout "${1:-1}" # 1 if not provided
 }
+
+cb() { git_current_branch }

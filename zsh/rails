@@ -4,7 +4,25 @@ export NOCOV=1
 # TODO ripgrep
 # unalias rg
 
-alias be="bundle exec"
+# from https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/
+bundle_install_wrapper() {
+  # Run command
+  eval "$@"
+  if [ $? = 7 ]; then
+    # If command crashes, try a bundle install
+    echo -e "\033[1;31m'$@' failed with exit code 7."
+    echo    "This probably means that your system is missing gems defined in your Gemfile."
+    echo -e "Executing 'bundle install'...\033[0m"
+    bundle install
+    # If bundle install was successful, try running command again.
+    if [ $? = 0 ]; then
+      echo "'bundle install' was successful. Retrying '$@'..."
+      eval "$@"
+    fi
+  fi
+}
+
+alias be="bundle_install_wrapper"
 alias rs="be rails server"
 alias rc="be rails console"
 alias bern="be rails runner"
@@ -18,8 +36,6 @@ alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load
 alias t="tbe rspec "
 
 alias rrg="rails routes | grep"
-
-#alias erduml='erd --attributes=content,primary_keys,foreign_keys,inheritance --inheritance --polymor$
 
 #t() {
 #  if [ -f Gemfile ]; then
