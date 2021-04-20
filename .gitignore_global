@@ -3,3 +3,4 @@
 .env.local
 ~/.atom/local-history
 .tags*
+*.swp

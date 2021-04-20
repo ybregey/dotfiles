@@ -13,6 +13,15 @@ ch_rails() {
   echo "app.post(url, params: {message: "message"}, headers: {authorization: "token" })"
 }
 
+ch_passenger() {
+  echo "
+    passenger start
+    passenger-status
+    passenger-status --show=requests
+    passenger-config system-metrics
+  "
+}
+
 ch_curl() {
   echo "curl -X POST -F 'username=davidwalsh' -F 'password=something' http://domain.tld/post-to-me.php"
   echo "curl -X POST 'https://connect.calamp.co.uk/connect/services/login?useAuthToken=true' --header 'calamp-services-app: d8b98aad-cc6e-4899-a86d-e2848eaf03b4' -d 'username=ohcalampctcapi&password=Changeme123!'"
@@ -39,6 +48,25 @@ ch_sidekiq() {
 
     # redis
     Sidekiq.redis { |redis| redis.keys }
+  "
+}
+
+ch_find() {
+  echo "
+    find <path> <conditions> [<actions>]
+    <conditions>
+      -type f # File
+      -type d # Directory
+      -type l # Symlink
+      -size +10M # Larger than 10MiB
+
+    Examples: https://gist.github.com/ybrehei/372762fab119502b68e6d57f55ab68f7
+      find . -name foo.txt                            # search under the current dir
+      find . -name "*.txt"                            # wildcard
+      find . -type f -mtime +29                       # find files modified more than 30 days ago
+      find /users/al -name Cookbook -type d           # search '/users/al'
+      find . -name '*.jpg' -exec rm {} \;             # remove
+      find . -iname foo                               # case-insensitive
   "
 }
 
@@ -70,5 +98,11 @@ ch_jsonb() {
     ?	text	Does the key/element string exist within the JSON value?	'{"a":1, "b":2}'::jsonb ? 'b'
     ?|	text[]	Do any of these key/element strings exist?	'{"a":1, "b":2, "c":3}'::jsonb ?| array['b', 'c']
     ?&	text[]	Do all of these key/element strings exist?	'["a", "b"]'::jsonb ?& array['a', 'b']
+  "
+}
+
+ch_redis() {
+  echo "
+  redis-cli -n 4 set key value
   "
 }

@@ -63,8 +63,8 @@ def __ips(examples = nil)
   end
 end
 
-def __msr(method=nil, *args)
-  beginning_time = Time.now
+def __time(method=nil, *args)
+  starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
   if block_given?
     yield
@@ -72,9 +72,27 @@ def __msr(method=nil, *args)
     self.send(method, args)
   end
 
-  end_time = Time.now
+  ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  puts(ending - starting)
+end
 
-  puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
+def as_subscribe(event_name)
+  as!
+  ActiveSupport::Notifications.subscribe(event_name) do |event|
+    puts "Event: #{event.inspect}"
+    puts "Started: #{event.time}"
+    puts "Finished: #{event.end}"
+    puts "Duration (ms): #{event.duration}"
+    puts "CPU time (ms): #{event.cpu_time}"
+    puts "Idle time (ms): #{event.idle_time}"
+    puts "# of objects allocated: #{event.allocations}"
+  end
+end
+
+def as_instrument(event_name)
+  ActiveSupport::Notifications.instrument(event_name) do
+    yield
+  end
 end
 
 # Helpers
@@ -91,6 +109,11 @@ end
 
 # useful when pasting json
 def null; nil end
+
+def ti
+  as!
+  Time.current.to_i * 1000
+end
 
 # Rails
 def rcc
@@ -118,7 +141,7 @@ if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
 end
 
 def ce(*args)
-  ActiveRecord::Base.connection.execute(*args)
+  ApplicationRecord.connection.execute(*args)
 end
 
 def params
@@ -176,11 +199,4 @@ def cheatsheet
     ; -- Would mute the return output by Ruby
     play -l -- Execute the line in the current debugging context
   TXT
-end
-
-
-def ti
-  as!
-
-  Time.current.to_i * 1000
 end

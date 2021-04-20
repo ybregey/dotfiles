@@ -114,16 +114,12 @@ unhide_telegram() {
 
 combos() {
   echo '
-    Ctrl + U – delete from the cursor to the start of the line.
+    Ctrl + U – clear line
     Ctrl + K – delete from the cursor to the end of the line.
     Ctrl + W – delete from the cursor to the start of the preceding word.
     Alt + D – delete from the cursor to the end of the next word.
     Ctrl + L – clear the terminal.
   '
-}
-
-mem() {
-  watch -n 0.5 'pmap -x $@ | grep total'
 }
 
 # Sound
@@ -141,3 +137,11 @@ a2dp_sink() {
 # display gamma
 setzoom() { gsettings set org.gnome.desktop.interface text-scaling-factor "$@"; }
 gamma() { xgamma -gamma $@ }
+
+# CLOSE ALL SNAPS BEFORE RUNNING THIS
+clean_snaps() {
+  LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision; do
+        sudo snap remove "$snapname" --revision="$revision"
+    done
+}

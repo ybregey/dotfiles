@@ -22,21 +22,21 @@ bundle_install_wrapper() {
   fi
 }
 
-alias be="bundle_install_wrapper"
-alias rs="be rails server"
-alias rc="be rails console"
-alias bern="be rails runner"
-alias bes="be sidekiq"
-alias ber="be ruby"
+alias be="bundle exec"
+alias bw="bundle_install_wrapper"
+alias rs="bw be rails server"
+alias rc="bw be rails console"
+alias brake="bw be rake"
 
 alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test NOCOV=1" # NOCOV no coverage
-alias tbe="tenv bundle exec"
-alias bet="tbe"
+alias tbe="tenv bw be"
+alias bet="tenv bw be"
 alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load"
 alias t="tbe rspec "
 
 alias rrg="rails routes | grep"
 
+alias rubocop="be rubocop"
 #t() {
 #  if [ -f Gemfile ]; then
 #     tbe rspec $1

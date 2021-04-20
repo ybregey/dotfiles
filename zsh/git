@@ -7,71 +7,75 @@
 alias git="stty sane && git"
 alias gti="git" # typo
 alias got="git" # typo
-alias gt="git"
+alias g="git"
 
 alias galiases='bat ~/.oh-my-zsh/plugins/git/git.plugin.zsh' # show omzsh git plugin aliases
 alias gitaliases='bat $HOME/zsh/gitaliases.sh' # show custom aliases
 
+alias s='git status'
 alias gs="git show"
 
+# new branch
+alias new='git checkout -b'
 # delete branch
 alias k="git branch -D"
 # rename branch
-alias br="git branch -m"
+alias bm="git branch -m"
+# list branches
+alias b='git branch -v'
+# switch branch
+alias gco='git switch'
+alias p='gco -'
+alias m='gco master'
+alias qa='gco qa'
 
+# stash
+alias stash='git stash'
+alias pop='git stash pop'
+
+# logs
 alias gl='git log --stat'
 alias lg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias gitsearch="git log -p -S"
-
 alias reflog="git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'"
 alias reflog_iso="git reflog --date=iso"
 alias walk_reflogs="git log --walk-reflogs --date=iso"
+alias gitsearch="git log -p -S"
 
+# diffs
 alias d="git diff"
 alias d1="git diff HEAD~1"
 alias d2="git diff HEAD~2"
 
-alias b='git branch -v'
-
-alias gco='git switch'
-
-alias new='git checkout -b'
-alias p='gco -'
-alias m='gco master'
-alias qa='gco qa'
+# reset & cleanup
 alias clean='git clean -fd'
 alias mhard='git reset --hard origin/master'
 alias rhard='git reset --hard origin/$(current_branch)'
 alias lhard='git reset --hard'
-
 alias softuncommit="git reset HEAD~1"
 alias harduncommit="git reset --hard HEAD~1"
 
-alias s='git status'
-alias stash='git stash'
-alias pop='git stash pop'
-
-alias c='git commit --no-verify -m'
+# add & commit
 alias add='git add -p'
-alias am='git commit --no-verify --amend --no-edit'
-alias ame='git commit --no-verify --amend'
 alias ama='git add --all && am'
-alias wip='git commit -m wip'
 alias save='git add --all && git commit -m "SAVEPOINT"'
 alias gac='git add . && git commit -a -m '
+alias c='git commit --no-verify -m'
+alias am='git commit --no-verify --amend --no-edit'
+alias ame='git commit --no-verify --amend'
+alias wip='git commit -m wip'
 
-alias fpush='git push --force-with-lease origin $(current_branch)'
-
+# pull & push
+alias push='git push --force-with-lease origin $(current_branch)'
+alias forcepush='git push -fu origin $(current_branch)'
 alias gpl='git pull --rebase'
 alias gplas='gpl --autostash'
 
+# rebase
 alias grm='git rebase master'
 alias grqa='git rebase qa'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 alias gr='git rebase'
-
-alias gsu="git submodule update --init --recursive"
 
 reb() {
   git rebase -i HEAD~$1

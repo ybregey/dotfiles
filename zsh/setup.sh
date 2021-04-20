@@ -2,6 +2,8 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install -y \
+  gcc \
+  automake \
   autoconf \
   bison \
   build-essential \
@@ -27,10 +29,13 @@ sudo apt install -y \
   hub \
   hwinfo \
   jq \
+  ruby-dev \
+  libxslt-dev \
   libbz2-1.0 \
   libbz2-dev \
   libbz2-ocaml \
   libbz2-ocaml-dev \
+  libxml2-dev \
   libcgroup-dev \
   libcgroup1 \
   libdb-dev \

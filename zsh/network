@@ -1,2 +1,9 @@
 alias whoison="sudo netstat -ntpl | grep"
 alias myip="curl http://ipecho.net/plain; echo"
+
+
+# lspci | grep -i eth
+# ip -c link
+# netstat -i
+# ethtool enp1s0
+# sudo ethtool -s enp1s0 speed 1000 duplex full
