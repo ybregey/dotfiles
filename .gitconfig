@@ -9,8 +9,7 @@
   ci = commit -v
   cam = commit -am
   df = diff
-  st = status
-  sa = stash
+  s = status
   cp = cherry-pick
   pl = pull --rebase
   unstage = reset HEAD --

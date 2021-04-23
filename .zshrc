@@ -54,6 +54,7 @@ source $HOME/zsh/rails to .zshrc
 source $HOME/zsh/asdf to .zshrc
 source $HOME/zsh/docker to .zshrc
 source $HOME/zsh/network to .zshrc
+source $HOME/zsh/kubectl to .zshrc
 source $HOME/zsh/cheatsheets to .zshrc
 
 source $HOME/zsh/projects/overhaul

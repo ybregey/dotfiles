@@ -67,6 +67,7 @@ alias wip='git commit -m wip'
 # pull & push
 alias push='git push --force-with-lease origin $(current_branch)'
 alias forcepush='git push -fu origin $(current_branch)'
+alias opush='git push -fu origin'
 alias gpl='git pull --rebase'
 alias gplas='gpl --autostash'
 

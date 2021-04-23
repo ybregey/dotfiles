@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # gem install pry-toys
 # Array.toy(3, Float) # => [1.0, 2.0, 3.0]
 # Array.toy(3) {|i| i + 3} # => [3, 6, 9]
@@ -10,68 +12,52 @@ Pry.config.theme = "pry-modern-256"
 # Benchmarks
 
 if ENV["BENCHMARK"]
-  require 'bundler/inline'
-
+  require "bundler/inline"
   gemfile do
     source 'https://rubygems.org'
-    gem 'benchmark-ips'
+    gem "benchmark-ips"
   end
 end
 
 def __bm(iterations)
   require "benchmark"
-
   Benchmark.bm do |bm|
     bm.report do
-      iterations.times do
-        yield
-      end
+      iterations.times(&block)
     end
   end
 end
 
 def __bmc(examples = nil, n = 100)
-  require "benchmark"
-
-  if !examples
+  unless examples
     puts "__bmc({ 'name1' => lambda1, 'name2' => lambda2 }, 1000)"
     return
   end
 
+  require "benchmark"
   Benchmark.bm do |bm|
     examples.each do |name, block|
-      bm.report(name) do
-        n.times do
-          block.call
-        end
-      end
+      bm.report(name) { n.times(&block) }
     end
   end
 end
 
 def __ips(examples = nil)
-  require 'benchmark/ips'
-
-  if !examples
+  unless examples
     puts "__ips({ 'name1' => lambda1, 'name2' => lambda2 })"
     return
   end
 
+  require "benchmark/ips"
   Benchmark.ips do |x|
     examples.each { |name, block| x.report(name, block) }
     x.compare!
   end
 end
 
-def __time(method=nil, *args)
+def __time
   starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-
-  if block_given?
-    yield
-  else
-    self.send(method, args)
-  end
-
+  yield
   ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   puts(ending - starting)
 end
@@ -89,16 +75,12 @@ def as_subscribe(event_name)
   end
 end
 
-def as_instrument(event_name)
-  ActiveSupport::Notifications.instrument(event_name) do
-    yield
-  end
+def as_instrument(event_name, &block)
+  ActiveSupport::Notifications.instrument(event_name, &block)
 end
 
-# Helpers
-
 def ap!
-  require 'awesome_print' unless defined?(AwesomePrint)
+  require "awesome_print" unless defined?(AwesomePrint)
   AwesomePrint.pry!
 end
 
@@ -109,11 +91,6 @@ end
 
 # useful when pasting json
 def null; nil end
-
-def ti
-  as!
-  Time.current.to_i * 1000
-end
 
 # Rails
 def rcc
@@ -127,26 +104,29 @@ end
 
 def fb!
   require "factory_bot"
-  include FactoryBot::Syntax::Methods
   FactoryBot.find_definitions
+  include FactoryBot::Syntax::Methods
+end
+
+def ti(multiplier = 1)
+  as!
+  Time.current.to_i * multiplier
 end
 
 # log SQL queries for debugging
 def sqlog
-  ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(ActiveRecord::Base)
+  ActiveRecord::Base.logger = Logger.new($stdout) if defined?(ActiveRecord::Base)
 end
 
-if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
-  sqlog
-end
+sqlog if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
 
-def ce(*args)
-  ApplicationRecord.connection.execute(*args)
+def ce(...)
+  ApplicationRecord.connection.execute(...)
 end
 
 def params
   super
- resque
+rescue
   defined?(request) ? request.params : super
 end
 
@@ -159,21 +139,18 @@ end
 
 # useful for copypasting let setups from specs
 def let(var_name, &block)
- return super if defined?(RSpec)
-
- define_method(var_name) { block.call }
-end
-
-def let!(var_name, &block)
   return super if defined?(RSpec)
-
-  # TODO: @ybrehei add memoization
-  let(var_name, &block)
+  define_method(var_name) { block.call }
 end
 
-# def j(*args)
-#   JSON.load(...)
-# end
+def let!(...)
+  return super if defined?(RSpec)
+  let(...) # TODO: @ybrehei add memoization
+end
+
+def j(...)
+  JSON.load(...)
+end
 
 # Pry cheatsheet
 def cheatsheet
@@ -191,12 +168,12 @@ def cheatsheet
     _out_ -- Array of all outputs values, also _in_
     cd <var> -- Step into an object, change the value of self
     cd .. -- Take out of a level
-    binding.pry -- Breakpoint
     edit --ex -- Edit the file where the last exception was thrown
     .<Shell> -- Runs the command
     whereami -- Print the context where the debugger is stopped
     whereami 20 -- Print the context 20 lines where the debugger is stopped
     ; -- Would mute the return output by Ruby
     play -l -- Execute the line in the current debugging context
+    show-source Class
   TXT
 end
