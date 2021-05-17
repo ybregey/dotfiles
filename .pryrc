@@ -104,6 +104,7 @@ end
 
 def fb!
   require "factory_bot"
+  FactoryBot.definition_file_paths = [File.expand_path('../spec/factories', __FILE__)]
   FactoryBot.find_definitions
   include FactoryBot::Syntax::Methods
 end
@@ -139,7 +140,7 @@ end
 
 # useful for copypasting let setups from specs
 def let(var_name, &block)
-  return super if defined?(RSpec)
+  return super if defined?(RSpec) && ENV["RAILS_ENV"] == "test"
   define_method(var_name) { block.call }
 end
 

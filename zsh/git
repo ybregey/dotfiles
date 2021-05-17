@@ -59,9 +59,9 @@ alias add='git add -p'
 alias ama='git add --all && am'
 alias save='git add --all && git commit -m "SAVEPOINT"'
 alias gac='git add . && git commit -a -m '
-alias c='git commit --no-verify -m'
-alias am='git commit --no-verify --amend --no-edit'
-alias ame='git commit --no-verify --amend'
+alias c='git commit -m'
+alias am='git commit --amend --no-edit'
+alias ame='git commit --amend'
 alias wip='git commit -m wip'
 
 # pull & push
