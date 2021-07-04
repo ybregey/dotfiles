@@ -114,15 +114,25 @@ def ti(multiplier = 1)
   Time.current.to_i * multiplier
 end
 
-# log SQL queries for debugging
-def sqlog
+# log DB queries for debugging
+def dblog
   ActiveRecord::Base.logger = Logger.new($stdout) if defined?(ActiveRecord::Base)
+  Mongo::Logger.logger.level = Logger::DEBUG if defined?(Mongo::Loger)
 end
 
-sqlog if ENV["SQL"] || ENV["RAILS_ENV"] == "test"
+dblog if (ENV["LOG_LEVEL"] == "debug") || (ENV["RAILS_ENV"] == "test")
 
 def ce(...)
-  ApplicationRecord.connection.execute(...)
+  ApplicationRecord.connection.execute(...).entries
+end
+
+# TODO: @ybregey to shared helpers
+def cee(sql)
+  ApplicationRecord.connection.explain(sql.respond_to?(:to_sql) ? sql.to_sql : sql)
+end
+
+def cea(sql)
+  cee("ANALYZE #{sql}")
 end
 
 def params

@@ -1,6 +1,7 @@
 export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
-export NOCOV=1
+export BUNDLE_JOBS=$(nproc)
+
 # TODO ripgrep
 # unalias rg
 
@@ -22,17 +23,21 @@ bundle_install_wrapper() {
   fi
 }
 
+alias bi="bundle install"
 alias be="bundle exec"
 alias bw="bundle_install_wrapper"
 alias rs="bw be rails server"
 alias rc="bw be rails console"
 alias brake="bw be rake"
 
-alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test NOCOV=1" # NOCOV no coverage
+alias tenv="RACK_ENV=test RAILS_ENV=test HANAMI_ENV=test NODE_ENV=test NOCOV=1 BULLET_ENABLED=false" # NOCOV no coverage
 alias tbe="tenv bw be"
 alias bet="tenv bw be"
 alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load"
 alias t="tbe rspec "
+tof() {
+  tbe rspec $@ --only-failures
+}
 
 alias rrg="rails routes | grep"
 
@@ -54,17 +59,16 @@ alias gem_open='EDITOR="atom --wait" bundle open'
 
 alias redo_migration='rails db:migrate:redo'
 
-#rdmup() {
-#  rails db:migrate:up VERSION=$1
-#}
+dbm_up() {
+  rails db:migrate:up VERSION=$1
+}
 
-#rdmdown() {
-#  rails db:migrate:down VERSION=$1
-#}
+dbm_down() {
+  rails db:migrate:down VERSION=$1
+}
 
 # redefined per project:
 #alias ptdb='RET rdd && RET rdc && RET rdm' # prepare test db
-#alias pddb='RED rdd && RED rdc && RED rdm' # prepare dev db
 
 compose() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
@@ -86,4 +90,8 @@ migrations_status() {
 db_version() {
   echo "rake db:version"
   rake db:version
+}
+
+rubodiff() {
+  git diff-tree -r --no-commit-id --name-only head origin/qa | xargs bundle exec rubocop
 }

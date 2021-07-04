@@ -13,6 +13,17 @@ alias n='nano'
 
 alias w='which'
 
+alias G='| grep'
+alias L='| less'
+alias l='ls -lahF | grep'
+alias h='history | grep'
+
+alias ls='ls --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+
 # sudo apt install xclip -y
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
@@ -26,20 +37,6 @@ alias distro='cat /etc/*-release'
 alias sapu='sudo apt-get update'
 alias supr='sudo apt-get update && sudo apt-get upgrade'
 alias sapti='sudo apt install'
-
-# FIXME
-#alias L='| less'
-#alias G='| grep'
-
-alias h='history | grep'
-alias l='ls -lahF | grep'
-
-#alias egrep='egrep --color=auto'
-#alias fgrep='fgrep --color=auto'
-#alias grep='grep --color=auto'
-#alias l.='ls -d .* --color=auto'
-#alias ll='ls -l --color=auto'
-#alias ls='ls --color=auto'
 
 # archives
 alias untar='tar -zxvf '
@@ -71,15 +68,18 @@ focus() {
   wmctrl -r "Zoom - Licensed Account" -b add,skip_taskbar
   wmctrl -r "Zoom Cloud Meetings" -b add,skip_taskbar
   wmctrl -r "Telegram" -b add,skip_taskbar
+  wmctrl -r "Skype" -b add,skip_taskbar
   wmctrl -r "Spotify Premium" -b add,skip_taskbar
   wmctrl -r "Devbook - Search Engine for Developers" -b add,skip_taskbar
 }
 hide_slack() { wmctrl -r "Slack" -b add,skip_taskbar }
+hide_skype() { wmctrl -r "Skype" -b add,skip_taskbar }
 hide_settings() { wmctrl -r "Settings" -b add,skip_taskbar }
 unhide_slack() { wmctrl -r "Slack" -b remove,skip_taskbar }
 unhide_zoom() { wmctrl -r "Zoom Cloud Meetings" -b remove,skip_taskbar }
 unhide_postman() { wmctrl -r "Postman" -b remove,skip_taskbar }
 unhide_telegram() { wmctrl -r "Telegram" -b remove,skip_taskbar }
+unhide_skype() { wmctrl -r "Skype" -b remove,skip_taskbar }
 unhide_spotify() { wmctrl -r "Spotify Premium" -b remove,skip_taskbar }
 unhide_settings() { wmctrl -r "Settings" -b remove,skip_taskbar }
 unfocus() {
@@ -123,4 +123,8 @@ clean_snaps() {
     while read snapname revision; do
         sudo snap remove "$snapname" --revision="$revision"
     done
+}
+
+color() {
+  bash -c  "$(wget -qO- https://git.io/vQgMr)"
 }

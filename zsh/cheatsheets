@@ -70,20 +70,6 @@ ch_find() {
   "
 }
 
-ch_docker() {
-  echo '
-  # remove docker containers
-  docker ps -a
-  docker rm $(docker ps -qa --no-trunc --filter "status=exited")
-
-  # remove docker images
-  docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
-
-  # delete volumes:
-  docker volume rm $(docker volume ls -qf dangling=true)
-  '
-}
-
 ch_git() {
   echo "
     git rebase -s recursive -X <ours/theirs>

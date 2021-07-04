@@ -3,7 +3,7 @@ alias dcd="dc -f docker-compose.development.yml"
 
 # logs
 alias dclogs="dc logs --tail 20 -f"
-alias dcdlogs="dc logs --tail 20 -f"
+alias dcdlogs="dcd logs --tail 20 -f"
 
 # list docker ps
 function dps() {
@@ -14,7 +14,14 @@ function dpsa() {
   docker ps -f "name=$1" -a
 }
 
-dcleanup(){
-  docker rm -v $(docker ps --filter status=exited -q --no-trunc 2>/dev/null) 2>/dev/null
-  docker rmi $(docker images --filter dangling=true -q --no-trunc 2>/dev/null) 2>/dev/null
+docker_cleanup(){
+  echo "before:"
+  docker system df
+
+  docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+  docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+  docker volume rm $(docker volume ls -qf dangling=true)
+
+  echo "\nafter:"
+  docker system df
 }

@@ -34,7 +34,7 @@ alias stash='git stash'
 alias pop='git stash pop'
 
 # logs
-alias gl='git log --stat'
+alias l='git log --stat'
 alias lg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 alias reflog="git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'"
 alias reflog_iso="git reflog --date=iso"
@@ -55,18 +55,19 @@ alias softuncommit="git reset HEAD~1"
 alias harduncommit="git reset --hard HEAD~1"
 
 # add & commit
-alias add='git add -p'
-alias ama='git add --all && am'
-alias save='git add --all && git commit -m "SAVEPOINT"'
-alias gac='git add . && git commit -a -m '
-alias c='git commit -m'
-alias am='git commit --amend --no-edit'
-alias ame='git commit --amend'
-alias wip='git commit -m wip'
+alias gap='git add -p'
+alias gam='git add --all && am'
+alias save='git add --all && git commit -n -m "SAVEPOINT"'
+alias gac='git add . && git commit -n -a -m '
+alias c='git commit -n -m'
+alias am='git commit -n --amend --no-edit'
+alias ame='git commit -n --amend'
+alias wip='git commit -n -m wip'
 
 # pull & push
-alias push='git push --force-with-lease origin $(current_branch)'
-alias forcepush='git push -fu origin $(current_branch)'
+alias push='git push -u origin $(current_branch)'
+alias fpush='git push -u --force-with-lease origin $(current_branch)'
+alias nvfpush='git push -u --force-with-lease --no-verify origin $(current_branch)'
 alias opush='git push -fu origin'
 alias gpl='git pull --rebase'
 alias gplas='gpl --autostash'
@@ -95,3 +96,6 @@ back() {
 }
 
 cb() { git_current_branch }
+
+# git clean branches
+# git branch --merged | egrep -v "(^\*|master|qa|)" | xargs git branch -d
