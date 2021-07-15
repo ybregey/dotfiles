@@ -117,7 +117,10 @@ end
 # log DB queries for debugging
 def dblog
   ActiveRecord::Base.logger = Logger.new($stdout) if defined?(ActiveRecord::Base)
-  Mongo::Logger.logger.level = Logger::DEBUG if defined?(Mongo::Loger)
+end
+
+def mongo_debug
+  Mongo::Logger.logger.level = Logger::DEBUG
 end
 
 dblog if (ENV["LOG_LEVEL"] == "debug") || (ENV["RAILS_ENV"] == "test")

@@ -35,6 +35,8 @@ alias tbe="tenv bw be"
 alias bet="tenv bw be"
 alias ptdb="tbe rails db:drop && tbe rails db:create && tbe rails db:schema:load"
 alias t="tbe rspec "
+alias tbullet="BULLET_ENABLED=true t"
+alias tdebug="LOG_LEVEL=debug t"
 tof() {
   tbe rspec $@ --only-failures
 }

@@ -1,19 +1,19 @@
-ch_mongo() {
+__mongo() {
   echo "db.setLogLevel(1) # log queries"
 }
 
-ch_db() {
+__db() {
  echo "PGPASSWORD=<password> createdb   -h <host> --username <username> <database>"
  echo "PGPASSWORD=<password> dropdb     -h <host> --username <username> <database>"
  echo "PGPASSWORD=<password> pg_dump    -h <host> --username <username> --verbose --clean --no-owner --no-acl -Z4 -Fc <database> > <dump_filename>"
  echo "PGPASSWORD=<password> pg_restore -h <host> --username <username> --verbose --clean --no-owner --no-acl -j <jobs> -d <database> <dump_filename>"
 }
 
-ch_rails() {
+__rails() {
   echo "app.post(url, params: {message: "message"}, headers: {authorization: "token" })"
 }
 
-ch_passenger() {
+__passenger() {
   echo "
     passenger start
     passenger-status
@@ -22,12 +22,12 @@ ch_passenger() {
   "
 }
 
-ch_curl() {
+__curl() {
   echo "curl -X POST -F 'username=davidwalsh' -F 'password=something' http://domain.tld/post-to-me.php"
   echo "curl -X POST 'https://connect.calamp.co.uk/connect/services/login?useAuthToken=true' --header 'calamp-services-app: d8b98aad-cc6e-4899-a86d-e2848eaf03b4' -d 'username=ohcalampctcapi&password=Changeme123!'"
 }
 
-ch_sidekiq() {
+__sidekiq() {
   echo "
     require "sidekiq/api"
 
@@ -51,7 +51,7 @@ ch_sidekiq() {
   "
 }
 
-ch_find() {
+__find() {
   echo "
     find <path> <conditions> [<actions>]
     <conditions>
@@ -70,13 +70,13 @@ ch_find() {
   "
 }
 
-ch_git() {
+__git() {
   echo "
     git rebase -s recursive -X <ours/theirs>
   "
 }
 
-ch_jsonb() {
+__jsonb() {
   echo "
     Operator	Right	Operand	Type	Description	Example
     @>	jsonb	Does the left JSON value contain within it the right value?	'{"a":1, "b":2}'::jsonb @> '{"b":2}'::jsonb
@@ -87,8 +87,18 @@ ch_jsonb() {
   "
 }
 
-ch_redis() {
+__redis() {
   echo "
   redis-cli -n 4 set key value
+  "
+}
+
+__deploy_pin() {
+  echo "
+    rails g deploy_pin:task
+    be rake deploy_pin:run['pre']
+    be rake deploy_pin:run['II']
+    be rake deploy_pin:run['20201007114927']
+    be rake deploy_pin:run['20210317172457!']
   "
 }

@@ -27,7 +27,7 @@ alias b='git branch -v'
 alias gco='git switch'
 alias p='gco -'
 alias m='gco master'
-alias qa='gco qa'
+alias q='gco qa'
 
 # stash
 alias stash='git stash'
@@ -98,4 +98,4 @@ back() {
 cb() { git_current_branch }
 
 # git clean branches
-# git branch --merged | egrep -v "(^\*|master|qa|)" | xargs git branch -d
+# git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
