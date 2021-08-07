@@ -19,7 +19,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
 
 # PATH config
-export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/bin:/usr/bin:/usr/local/bin:/snap/bin:~/.local/bin:/sbin:/usr/sbin:/usr/local/sbin:~/.cargo/bin
+export PATH=$HOME/bin:~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/bin:/usr/bin:/usr/local/bin:/snap/bin:/sbin:/usr/sbin:~/.cargo/bin
 fpath=(/usr/local/share/zsh-completions $fpath) # functions definition path
 java!() {
   export PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin

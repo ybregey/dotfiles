@@ -191,3 +191,5 @@ def cheatsheet
     show-source Class
   TXT
 end
+
+EM = EquipmentManagement if defined?(EquipmentManagement)

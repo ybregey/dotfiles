@@ -64,7 +64,8 @@ howtokill() {
 focus() {
   wmctrl -r "Settings" -b add,skip_taskbar
   wmctrl -r "Bluetooth Devices" -b add,skip_taskbar
-  #wmctrl -r "Slack" -b add,skip_taskbar
+  # wmctrl -r "Slack" -b add,skip_taskbar
+  wmctrl -r "Library - Cacher" -b add,skip_taskbar
   wmctrl -r "Postman" -b add,skip_taskbar
   wmctrl -r "Zoom - Licensed Account" -b add,skip_taskbar
   wmctrl -r "Zoom Cloud Meetings" -b add,skip_taskbar
@@ -74,6 +75,7 @@ focus() {
   wmctrl -r "Devbook - Search Engine for Developers" -b add,skip_taskbar
 }
 hide_slack() { wmctrl -r "Slack" -b add,skip_taskbar }
+hide_telegram() { wmctrl -r "Telegram" -b add,skip_taskbar }
 hide_skype() { wmctrl -r "Skype" -b add,skip_taskbar }
 hide_settings() { wmctrl -r "Settings" -b add,skip_taskbar }
 unhide_slack() { wmctrl -r "Slack" -b remove,skip_taskbar }

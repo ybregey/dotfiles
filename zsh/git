@@ -74,13 +74,13 @@ alias gplas='gpl --autostash'
 
 # rebase
 alias grm='git rebase master'
-alias grqa='git rebase qa'
-alias grc='git rebase --continue'
-alias gra='git rebase --abort'
-alias gr='git rebase'
+alias gr='git rebase --no-verify'
+alias grqa='gr qa'
+alias grc='gr --continue'
+alias gra='gr --abort'
 
 reb() {
-  git rebase -i HEAD~$1
+  gr -i HEAD~$1
 }
 
 hs() {
@@ -99,3 +99,4 @@ cb() { git_current_branch }
 
 # git clean branches
 # git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+cmsg() { git log -1 --pretty=%B | pbcopy }

@@ -97,3 +97,11 @@ db_version() {
 rubodiff() {
   git diff-tree -r --no-commit-id --name-only head origin/qa | xargs bundle exec rubocop
 }
+
+pronto_run() {
+  bundle exec pronto run --exit-code --commit=$1 --runner --force-exclusion brakeman rubocop reek flay fasterer
+}
+
+reset_pk_sequence() {
+ echo "ActiveRecord::Base.connection.reset_pk_sequence!('users')"
+}
