@@ -1,6 +1,6 @@
 [user]
-  email = bregey@gmail.com
-  name = Yurko Bregey
+	email = ybrehei@softserveinc.com
+	name = Yura Brehei
 [alias]
   new = checkout -b
   kill = branch -D
