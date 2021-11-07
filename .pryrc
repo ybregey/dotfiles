@@ -104,9 +104,9 @@ end
 
 def fb!
   require "factory_bot"
+  require "faker"
   FactoryBot.definition_file_paths = [File.expand_path('../spec/factories', __FILE__)]
   FactoryBot.find_definitions
-  include FactoryBot::Syntax::Methods
 end
 
 def ti(multiplier = 1)
@@ -117,11 +117,9 @@ end
 # log DB queries for debugging
 def dblog
   ActiveRecord::Base.logger = Logger.new($stdout) if defined?(ActiveRecord::Base)
+  Mongo::Logger.logger.level = Logger::DEBUG if defined?(Mongo::Logger)
 end
 
-def mongo_debug
-  Mongo::Logger.logger.level = Logger::DEBUG
-end
 
 dblog if (ENV["LOG_LEVEL"] == "debug") || (ENV["RAILS_ENV"] == "test")
 
