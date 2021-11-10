@@ -1,4 +1,5 @@
-# Set fzf installation directory path
-export FZF_BASE=/usr/local/opt/fzf
+# brew install fzf
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
