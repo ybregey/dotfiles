@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -26,7 +31,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
 
 # PATH config
-export PATH=$HOME/bin:~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin
+export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin
 # fpath=(/usr/local/share/zsh-completions $fpath) # functions definition path
 
 # TODO: alternatives?
@@ -36,6 +41,7 @@ precmd() { eval "$PROMPT_COMMAND" }
 PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 [[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
 
+eval "$(direnv hook zsh)"
 
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
@@ -69,15 +75,10 @@ source $HOME/zsh/kubectl to .zshrc
 source $HOME/zsh/cheatsheets to .zshrc
 source $HOME/zsh/projects/overhaul
 
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#
-# while :
-# do
-#   if pgrep Music; then pkill Music; fi
-#   sleep 0.5
-# done
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

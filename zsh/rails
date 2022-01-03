@@ -43,7 +43,6 @@ tof() {
 
 alias rrg="rails routes | grep"
 
-alias rubocop="be rubocop"
 #t() {
 #  if [ -f Gemfile ]; then
 #     tbe rspec $1
