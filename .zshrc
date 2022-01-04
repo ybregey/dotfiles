@@ -31,7 +31,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
 
 # PATH config
-export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin
+export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin:$HOME/zsh/scripts
 # fpath=(/usr/local/share/zsh-completions $fpath) # functions definition path
 
 # TODO: alternatives?
