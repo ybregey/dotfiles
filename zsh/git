@@ -26,9 +26,15 @@ alias b='git branch -v'
 # switch branch
 alias gco='git switch'
 alias p='gco -'
-alias m='gco master'
 alias q='gco qa'
 alias dev='gco develop'
+#alias m='gco master'
+m() {
+  gco master
+  if [ $? = 128 ]; then
+    gco main
+  fi
+}
 
 # stash
 alias stash='git stash'

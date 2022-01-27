@@ -2,9 +2,6 @@ export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
 export BUNDLE_JOBS=$(nproc)
 
-# TODO ripgrep
-# unalias rg
-
 # from https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/
 bundle_install_wrapper() {
   # Run command
