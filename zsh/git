@@ -80,12 +80,12 @@ alias gpl='git pull --rebase'
 alias gplas='gpl --autostash'
 
 # rebase
-alias grm='git rebase master'
 alias gr='git rebase --no-verify'
-alias grqa='gr qa'
-alias grdev='gr develop'
-alias grc='gr --continue'
-alias gra='gr --abort'
+alias grm='git rebase master'
+alias grma='git rebase main'
+alias grd='gr develop'
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
 
 reb() {
   gr -i HEAD~$1

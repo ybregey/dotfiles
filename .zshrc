@@ -31,7 +31,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
 
 # PATH config
-export PATH=~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin:$HOME/zsh/scripts
+export PATH=./bin:~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin:$HOME/zsh/scripts
 # fpath=(/usr/local/share/zsh-completions $fpath) # functions definition path
 
 # TODO: alternatives?
@@ -74,6 +74,7 @@ source $HOME/zsh/network to .zshrc
 source $HOME/zsh/kubectl to .zshrc
 source $HOME/zsh/cheatsheets to .zshrc
 source $HOME/zsh/projects/overhaul
+source $HOME/zsh/projects/youtube-dl
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

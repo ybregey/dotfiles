@@ -1,3 +1,6 @@
+# prevent closing terminal on Ctrl-D
+set -o ignoreeof
+
 # TODO by default ZSH doesn't map backward-kill-line to anything?
 # https://newbedev.com/iterm2-delete-line
 bindkey "^X\\x7f" backward-kill-line
@@ -128,5 +131,3 @@ clean_snaps() {
 color() {
   bash -c  "$(wget -qO- https://git.io/vQgMr)"
 }
-
-alias y="youtube-dl -o '~/files/youtube-dl/%(title)s-%(id)s.%(ext)s' --cookies ~/files/youtube-dl/cookies.txt"
