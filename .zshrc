@@ -25,8 +25,12 @@ export CASE_SENSITIVE=1
 export DISABLE_UNTRACKED_FILES_DIRTY=1
 export ZSH_DOTENV_PROMPT=0
 
+# GPG
+export GPG_TTY=$(tty)
+alias pinentry="pinentry-mac"
+
 # PATH config
-export PATH=./bin:~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin:$HOME/zsh/scripts
+export PATH=./bin:~/.fzf/bin:~/.asdf/shims:~/.asdf/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/usr/bin:/usr/sbin:/usr/local/bin:/bin:/sbin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/openjdk/bin:~/.cargo/bin:$HOME/bin:$HOME/zsh/scripts
 # fpath=(/usr/local/share/zsh-completions $fpath) # functions definition path
 
 # TODO: alternatives?

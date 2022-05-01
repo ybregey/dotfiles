@@ -2,6 +2,10 @@ export GEM_EDITOR="atom"
 export DISABLE_SPRING=1
 export BUNDLE_JOBS=$(nproc)
 
+bake() {
+  bundle exec rake $@
+}
+
 # from https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/
 bundle_install_wrapper() {
   # Run command
@@ -57,27 +61,19 @@ alias gem_open='EDITOR="atom --wait" bundle open'
 
 alias redo_migration='rails db:migrate:redo'
 
-dbm_up() {
-  rails db:migrate:up VERSION=$1
-}
-
-dbm_down() {
-  rails db:migrate:down VERSION=$1
-}
+dbm_up() { rails db:migrate:up VERSION=$1 }
+dbm_down() { rails db:migrate:down VERSION=$1 }
 
 # redefined per project:
 #alias ptdb='RET rdd && RET rdc && RET rdm' # prepare test db
 
+# TODO check
 compose() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
 }
 
 minirails() {
   echo "rails new <app name> --api --skip-keeps --skip-action-mailer --skip-action-mailbox --skip-action-text --skip-active-storage --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-javascript --skip-turbolinks --skip-test --skip-system-test"
-}
-
-bake() {
-  bundle exec rake $@
 }
 
 migrations_status() {
@@ -92,19 +88,4 @@ db_version() {
 
 rubodiff() {
   git diff-tree -r --no-commit-id --name-only head origin/qa | xargs bundle exec rubocop
-}
-
-pronto_run() {
-  bundle exec pronto run --exit-code --commit=$1 --runner --force-exclusion brakeman rubocop reek flay fasterer
-}
-
-reset_pk_sequence() {
- echo "ActiveRecord::Base.connection.reset_pk_sequence!('users')"
-}
-
-loger() {
-  echo "
-    ActiveRecord::Base.logger = Logger.new(\$stdout)
-    Mongo::Logger.logger.level = Logger::DEBUG
-   "
 }

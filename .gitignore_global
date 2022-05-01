@@ -4,3 +4,4 @@
 ~/.atom/local-history
 .tags*
 *.swp
+.gitconfig
