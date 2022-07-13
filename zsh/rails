@@ -55,7 +55,7 @@ alias rrg="rails routes | grep"
 #}
 
 alias cop='be rubocop'
-alias copa='be rubocop --auto-correct'
+alias copa='be rubocop --autocorrect'
 
 alias gem_open='EDITOR="atom --wait" bundle open'
 
